@@ -336,14 +336,16 @@ function HubDashboard() {
 										{sortedRecs.map((r) => (
 											<details
 												key={r.title}
-												className={`rec ${r.pri === 'high' ? 'rec-hi' : ''}`}
+												className={`rec ${r.pri === 'high' ? 'rec-hi' : ''} ${r.costDriven ? 'rec-cost-glow' : ''}`}
 											>
 												<summary>
-													<span
-														className={`pri ${r.pri === 'high' ? 'pri-high' : 'pri-med'}`}
-													>
-														{r.pri === 'high' ? 'High' : 'Medium'}
-													</span>
+													{r.costDriven ? null : (
+														<span
+															className={`pri ${r.pri === 'high' ? 'pri-high' : 'pri-med'}`}
+														>
+															{r.pri === 'high' ? 'High' : 'Medium'}
+														</span>
+													)}
 													{r.costDriven ? (
 														<span className='pri pri-cost'>$ Cost impact</span>
 													) : null}

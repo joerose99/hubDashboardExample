@@ -241,16 +241,23 @@ dtc:{
   periodNote:"",
 
   totalLbs:{value:1426.68,status:"confirmed"},
-  costLost:{low:3566.70,high:5706.72,status:"estimated",
-    caption:"Generic $2.50\u2013$4.00/lb estimate \u2014 no property-specific cost data on file yet for this hub.",
-    note:"No property-specific cost data exists for this hub yet — DTC's menus are unpriced "+
-         "banquet order/prep sheets (quantities and item names only, no unit costs), and no "+
-         "purchasing, invoice, or inventory-cost document exists in this hub's records. This range "+
-         "applies a conservative $2.50–$4.00/lb food-cost estimate, typical for hotel banquet and "+
-         "buffet operations, to this week's cleaned total waste (1,426.68 lbs). It does not include "+
-         "labor cost associated with prepping, serving, or disposing of the wasted food. Should be "+
-         "replaced with a real per-property model once purchasing or invoice data becomes "+
-         "available."},
+  costLost:{low:null,high:null,status:"estimated",
+    display:"$5,890.92",
+    perLb:4.13,
+    caption:"Built from DTC's own August 2026 purchasing price list — real per-category unit costs.",
+    note:"Replaces the earlier generic $2.50–$4.00/lb placeholder with real category-level unit "+
+         "costs from DTC's own purchasing price list (2,975 SKUs, 929 directly weight-priced "+
+         "items, median $/lb per category), applied to DTC's own ingredient-level waste-category "+
+         "breakdown (Vegetables 28.7%, Starches/Grains 24.9%, Fruits 19.1%, Proteins 13.6%, "+
+         "Other 8.9%, Dairy 4.9%). Result: $5,890.92 total, $4.13/lb blended. Status held at "+
+         "'estimated' rather than 'confirmed' for two reasons: category assignment for ~2,000 of "+
+         "the 2,975 priced items (Produce, Dry/Canned, Frozen, Baked Goods vendor categories) was "+
+         "done by automated keyword matching, not manually reviewed line-by-line; and the waste "+
+         "categorization itself required extending the platform's own ingredient-to-category map "+
+         "to correctly catch cantaloupe, honeydew, and other melon/berry produce that the deployed "+
+         "map has no token for — without that extension, ~93 lbs (6.5% of total waste) would have "+
+         "been miscategorized as 'Other' and costed at the wrong rate. That map gap is a real "+
+         "platform issue worth flagging to engineering, not something specific to DTC."},
 
   wasteType:{status:"confirmed",
     rows:[{label:"Preconsumer",pct:51,color:"#1B5E3F"},
@@ -267,6 +274,17 @@ dtc:{
           {label:"M-Club",pct:9,color:"#2C5C7A"},
           {label:"Kitchen",pct:8,color:"#96342E"}]},
 
+  categories:{status:"estimated",
+    note:"$/lb from DTC's own August 2026 purchasing price list — see the cost card note for "+
+         "the full methodology, including the ingredient-map extension needed to correctly "+
+         "categorize cantaloupe, honeydew, and other melon/berry produce.",
+    rows:[{label:"Vegetables",pct:28.7,costPerLb:3.79,costShare:26.3},
+          {label:"Starches/Grains",pct:24.9,costPerLb:2.35,costShare:14.2},
+          {label:"Fruits",pct:19.1,costPerLb:3.77,costShare:17.4},
+          {label:"Proteins",pct:13.6,costPerLb:6.62,costShare:21.8},
+          {label:"Other",pct:8.9,costPerLb:7.11,costShare:15.4},
+          {label:"Dairy",pct:4.9,costPerLb:4.20,costShare:5.0}]},
+
   topIngredients:{status:"confirmed",
     note:"Based on 71 of 78 recorded weigh-ins this period; 7 were excluded due to scale "+
          "readings that indicate sensor issues at this property warranting a maintenance check.",
@@ -278,12 +296,18 @@ dtc:{
     {pri:"high",title:"Reduce banquet breakfast egg-station batch sizes",
      body:"Scrambled eggs are the single largest wasted ingredient at 76.20 lbs across 15 feeds — more than any other item by a wide margin, and concentrated in banquet breakfast buffets (NAHN and similar recurring breakfast events). Shift from large steam-table batches to smaller, more frequent refills timed to actual buffet traffic to reduce this batch-driven waste.",
      support:"Scrambled eggs: 76.20 lbs across 15 feeds, the highest of any ingredient at this property."},
+    {pri:"high",costDriven:true,title:"Liquid Eggs is both the heaviest and the most expensive item on the menu log",
+     body:"Liquid Eggs tops the menu-attribution table both by weight (127.3 lbs) and by cost ($842.73) — a double concentration that's rare across all three properties analyzed. At the Proteins rate ($6.62/lb), it accounts for 21.8% of all costed menu-item waste despite being only 13.5% of costed menu-item weight. Fixing egg-station batch sizes (see above) will move both the weight and dollar numbers at once.",
+     support:"Liquid Eggs: 127.3 lbs (13.5% of costed menu-item weight), $842.73 (21.8% of this week's $3,867.28 in costed menu-item waste), priced at $6.62/lb vs. the property's $4.13/lb blended average."},
     {pri:"high",title:"Right-size fruit and grain sides across recurring banquet events",
      body:"Rolled oats (44.93 lbs), watermelon (43.81 lbs), and green beans (39.94 lbs) are all high-volume banquet side items appearing repeatedly across the event calendar. These are exactly the kind of bulk-prepped items where a fixed case-order quantity stops matching actual cover counts once an event's real attendance is known. Tie prep quantities to confirmed cover counts per event rather than a standing case order.",
      support:"Rolled oats 44.93 lbs, watermelon 43.81 lbs, green beans 39.94 lbs — three of the top five wasted ingredients, all recurring banquet-side items."},
     {pri:"med",title:"Audit black bean prep across the banquet menu rotation",
      body:"Black beans appear as a wasted ingredient in 11 separate feeds, more frequently than any other item, suggesting a standing prep item that's consistently over-produced regardless of which event is running that day. Review the standard batch recipe against typical per-event draw before the next prep cycle.",
      support:"Black beans: 40.65 lbs wasted across 11 feeds — the highest feed-frequency of any ingredient."},
+    {pri:"med",costDriven:true,title:"Add a cost-ranked waste view for the kitchen, not just weight-ranked",
+     body:"Proteins are only 13.6% of DTC's waste by weight but 21.8% of the week's total food cost lost — the largest gap between weight share and cost share of any category. A weight-ranked log alone will keep pointing staff at vegetable and starch prep first. Add a cost column to the same waste log already in use, so protein-heavy stations (the egg station especially) get checked with the same urgency as bulk produce prep, not after it.",
+     support:"Proteins: 13.6% of waste by weight, 21.8% of the week's $5,890.92 total food cost ($6.62/lb). Vegetables: 28.7% by weight, 26.3% of cost ($3.79/lb) — closer to proportional by comparison."},
     {pri:"med",title:"Investigate the even Preconsumer/Postconsumer split as two separate problems",
      body:"DTC's waste splits almost evenly between Preconsumer (51%) and Postconsumer (49%) — over-prepping and guest-facing leftover waste are both happening at meaningful scale here, and neither can be treated as the dominant lever. Pair the prep-side fixes above with a banquet-service review (portion sizes on plated items, buffet breakdown timing) rather than assuming one intervention will move the whole number.",
      support:"Preconsumer 51% vs Postconsumer 49% of total waste — a genuinely balanced split, not skewed toward one waste type."},
@@ -306,20 +330,22 @@ dtc:{
          "same banquet event sheets as everything else, since no department-aware routing exists "+
          "yet — a reasonable approximation for a first pass, worth refining before this becomes a "+
          "standing report. Item names below are merged case/plural duplicates (e.g. \"Green Beans\" "+
-         "and \"green beans\" counted as one).",
+         "and \"green beans\" counted as one). Costs added once DTC's own price list arrived: since "+
+         "each row here is already a single ingredient (not a composite dish like Maven's menu "+
+         "items), each is costed directly at its own category rate — no dish-decomposition needed.",
     rows:[
-      {item:"Liquid Eggs",lbs:127.3,flag:""},
-      {item:"Rolled Oats",lbs:119.2,flag:""},
-      {item:"Pineapple",lbs:105.9,flag:""},
-      {item:"Watermelon",lbs:97.2,flag:""},
-      {item:"Par Boiled Rice",lbs:74.1,flag:""},
-      {item:"Green Beans",lbs:71.2,flag:""},
-      {item:"Cantaloupe",lbs:71.2,flag:""},
-      {item:"Tofu",lbs:63.5,flag:""},
-      {item:"Cavatappi Pasta",lbs:63.4,flag:""},
-      {item:"Baby Spinach",lbs:52.1,flag:""},
-      {item:"Zucchini",lbs:51.8,flag:""},
-      {item:"Random Chicken Breast",lbs:45.8,flag:""}]},
+      {item:"Liquid Eggs",lbs:127.3,flag:"",cat:"Proteins",cost:842.73},
+      {item:"Rolled Oats",lbs:119.2,flag:"",cat:"Starches/Grains",cost:280.12},
+      {item:"Pineapple",lbs:105.9,flag:"",cat:"Fruits",cost:399.24},
+      {item:"Watermelon",lbs:97.2,flag:"",cat:"Fruits",cost:366.44},
+      {item:"Par Boiled Rice",lbs:74.1,flag:"",cat:"Starches/Grains",cost:174.13},
+      {item:"Green Beans",lbs:71.2,flag:"",cat:"Vegetables",cost:269.85},
+      {item:"Cantaloupe",lbs:71.2,flag:"",cat:"Fruits",cost:268.42},
+      {item:"Tofu",lbs:63.5,flag:"",cat:"Proteins",cost:420.37},
+      {item:"Cavatappi Pasta",lbs:63.4,flag:"",cat:"Starches/Grains",cost:148.99},
+      {item:"Baby Spinach",lbs:52.1,flag:"",cat:"Vegetables",cost:197.46},
+      {item:"Zucchini",lbs:51.8,flag:"",cat:"Vegetables",cost:196.32},
+      {item:"Random Chicken Breast",lbs:45.8,flag:"",cat:"Proteins",cost:303.20}]},
 
   allTime:{status:"confirmed",recycledTons:57.03,co2Tons:272.76,
     acres:344,trees:4501,homes:12545,miles:699349}

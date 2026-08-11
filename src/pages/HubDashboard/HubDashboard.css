@@ -88,9 +88,18 @@ section{padding:32px 0;}
 .legend b{color:var(--ink);font-weight:600;}
 
 /* recs */
+@keyframes rec-cost-pulse{
+  0%,100%{box-shadow:0 0 0 1.5px var(--brass-dark), 0 0 6px 1px rgba(29,154,59,.35);}
+  50%{box-shadow:0 0 0 2.5px var(--brass-dark), 0 0 18px 5px rgba(29,154,59,.65);}
+}
+.rec-cost-glow{animation:rec-cost-pulse 2.2s ease-in-out infinite;}
+@media (prefers-reduced-motion: reduce){
+  .rec-cost-glow{animation:none;box-shadow:0 0 0 2px var(--brass-dark);}
+}
 .rec{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brass);
   border-radius:var(--r);padding:18px 20px;margin-bottom:11px;}
 .rec-hi{border-left-color:var(--flag);}
+.rec-cost-glow{border-left-color:transparent;}
 .rec summary{display:flex;align-items:flex-start;gap:10px;cursor:pointer;list-style:none;}
 .rec summary::-webkit-details-marker{display:none;}
 .rec summary::marker{content:'';}
