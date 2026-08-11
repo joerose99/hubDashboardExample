@@ -58,7 +58,7 @@ northBethesda:{
   recommendations:{status:"confirmed",rows:[
     {pri:"high",costDriven:true,estSavings:"$32–$43/wk",title:"Cut honeydew prep by 30–40%, prioritizing pre-cut portions",
      body:"Honeydew is the single biggest waste driver — 38 lbs between whole melon and pre-cut chunks, a third of all food waste this week. Pre-cut chunks weigh less but cost more per pound ($3.95/lb vs. $2.51/lb blended), so together the two account for 72% of named-ingredient cost lost. Pulling total prep back 30–40%, weighted toward the pre-cut portion, would save an estimated $32–$43 per week at current cost.",
-     support:"Honeydew melon: 29.93 lbs, $75.11 ($2.51/lb). Honeydew melon chunks: 8.16 lbs, $32.22 ($3.95/lb). Combined 38.09 lbs, $107.33 — 72% of the $149.08 named-ingredient total and 33.7% of total waste (112.95 lbs)."},
+     support:"Honeydew: 38.09 lbs combined, $107.33 — 72% of named-ingredient cost, 33.7% of total waste."},
     {pri:"high",title:"Right-size and repurpose fruit platters",
      body:"Fruit is 44.8% of all waste by weight, and the two most-wasted menu items are both fruit platters. Shrinking batch sizes and setting up a same-day repurposing plan — smoothies, infused water, dessert garnish — would redirect cut fruit before it becomes waste.",
      support:"Fruit: 44.8% of waste by weight. Fruit platters were the top wasted item across 5 event occurrences."},
@@ -73,7 +73,7 @@ northBethesda:{
      support:"Waste spans 4 departments — Kitchen 46.5%, Cafeteria 21.2%, Restaurant 17.7%, Banquet 14.7%."},
     {pri:"med",costDriven:true,title:"Fold protein cost into Kitchen's par-level review",
      body:"Proteins are only 20.5% of waste by weight but 28.3% of dollars lost — eggs, sausage, and bacon carry more cost than their weight suggests. Adding a cost view to the par-level review already planned for Kitchen would flag protein prep with the same urgency as fruit.",
-     support:"Proteins: 20.5% of waste by weight, 28.3% of the week's $269.56 total food cost ($3.30/lb). Fruits: 44.8% by weight, 43.2% of cost ($2.30/lb) — roughly proportional by comparison."}]},
+     support:"Proteins: 20.5% of weight, 28.3% of $269.56 total cost. Fruits: 44.8% of weight, 43.2% of cost."}]},
 
   menuAttribution:{status:"confirmed",
     note:"Verified 2026-08-05: 29/29 raw correlations in the window matched a real menu line "+
