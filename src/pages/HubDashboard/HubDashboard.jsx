@@ -373,7 +373,7 @@ function HubDashboard() {
 										<div className='shead'>
 											<div>
 												<div className='eyebrow'>Waste traced to the menu</div>
-												<h2>Menu item attribution</h2>
+												<h2>Menu Item Attribution</h2>
 											</div>
 											<span className={`tag tag-${menu.status} internal-only`}>
 												{cap(menu.status)}
@@ -469,7 +469,7 @@ function HubDashboard() {
 					<section>
 						<div className='impact'>
 							<div className='eyebrow'>Since install · {p.installDate}</div>
-							<h2 style={{ color: '#F3F7F4', fontSize: 19 }}>Diverted from landfill</h2>
+							<h2 style={{ color: '#F3F7F4', fontSize: 19 }}>Diverted From Landfill</h2>
 							<div className='imp-grid'>
 								{impactCells.map((c, i) => (
 									<div key={i}>
@@ -482,13 +482,7 @@ function HubDashboard() {
 					</section>
 				</div>
 
-				<footer>
-					Prototype canvas · figures sourced from the live client portal unless flagged
-					otherwise
-					<br />
-					Toggle the header control to switch between internal view (provenance visible) and
-					presentation view (chrome hidden, nothing unverified shown).
-				</footer>
+				<footer />
 			</main>
 		</>
 	);

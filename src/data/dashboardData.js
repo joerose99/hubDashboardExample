@@ -14,13 +14,13 @@ northBethesda:{
   installDate:"Feb 27, 2023",
   orgId:"6a4ae2fc3aa41c5669c19e2c",
   period:"July 18 – 25, 2026",
-  periodNote:"Most recent complete analysis week",
+  periodNote:"",
 
   totalLbs:{value:113.0,status:"confirmed"},
   costLost:{low:451.80,high:677.70,status:"confirmed",
     display:"$269.56",
     perLb:2.38,
-    caption:"Built from North Bethesda's own June 2026 inventory — real per-category unit costs.",
+    caption:"",
     note:"Real ingredient-level model from North Bethesda's own costed inventory, already in "+
          "globalContext (filed as type 'Menu') — no new data was needed. Blended rate $2.38/lb "+
          "vs. the platform's flat $4.00-$6.00/lb assumption; real cost is roughly half the low "+
@@ -119,7 +119,7 @@ maven:{
   installDate:"May 18, 2026",
   orgId:"6554f786a8c64cf4f5945895",
   period:"July 18 – 25, 2026",
-  periodNote:"Most recent complete analysis week",
+  periodNote:"",
 
   totalLbs:{value:617.2,status:"confirmed"},
   costLost:{low:2468.80,high:3703.20,status:"estimated",
