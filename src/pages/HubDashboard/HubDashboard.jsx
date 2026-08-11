@@ -339,16 +339,21 @@ function HubDashboard() {
 												className={`rec ${r.pri === 'high' ? 'rec-hi' : ''} ${r.costDriven ? 'rec-cost-glow' : ''}`}
 											>
 												<summary>
-													{r.costDriven ? null : (
-														<span
-															className={`pri ${r.pri === 'high' ? 'pri-high' : 'pri-med'}`}
-														>
-															{r.pri === 'high' ? 'High' : 'Medium'}
-														</span>
-													)}
-													{r.costDriven ? (
-														<span className='pri pri-cost'>$ Cost impact</span>
-													) : null}
+													<div className='rec-tagstack'>
+														{r.costDriven ? null : (
+															<span
+																className={`pri ${r.pri === 'high' ? 'pri-high' : 'pri-med'}`}
+															>
+																{r.pri === 'high' ? 'High' : 'Medium'}
+															</span>
+														)}
+														{r.costDriven ? (
+															<span className='pri pri-cost'>$ Cost impact</span>
+														) : null}
+														{r.estSavings ? (
+															<span className='rec-savings'>Est. {r.estSavings} saved</span>
+														) : null}
+													</div>
 													<div className='rec-head'>
 														<h3>{r.title}</h3>
 														<div className='rec-caption'>{r.support}</div>
