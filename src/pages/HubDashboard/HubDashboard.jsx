@@ -259,7 +259,15 @@ function HubDashboard() {
 								<div className='eyebrow'>
 									{p.period} · {p.name}
 								</div>
-								<div className={`hero${p.costLost.perLb != null ? ' hero3' : ''}`}>
+								<div
+									className={`hero${
+										p.covers
+											? ' hero-with-quad'
+											: p.costLost.perLb != null
+												? ' hero3'
+												: ''
+									}`}
+								>
 									<div className='card'>
 										<div className='stat-lbl'>
 											Total food waste captured
@@ -287,38 +295,97 @@ function HubDashboard() {
 											))}
 										</div>
 									</div>
-									<div className='card'>
-										<div className='stat-lbl'>
-											Estimated food cost lost
-											<span className={`tag tag-${p.costLost.status} internal-only`}>
-												{cap(p.costLost.status)}
-											</span>
-										</div>
-										<div className='stat-mid'>
-											{p.costLost.display ||
-												(p.costLost.low != null
-													? `${money(p.costLost.low)} – ${money(p.costLost.high)}`
-													: 'Not available')}
-										</div>
-										{p.costLost.caption ? (
-											<div className='stat-cap'>{p.costLost.caption}</div>
-										) : p.costLost.low == null && !p.costLost.display ? (
-											<div className='stat-cap'>{p.costLost.note || ''}</div>
-										) : null}
-									</div>
-									{p.costLost.perLb != null && (
-										<div className='card'>
-											<div className='stat-lbl'>
-												Cost per pound wasted
-												<span className={`tag tag-${p.costLost.status} internal-only`}>
-													{cap(p.costLost.status)}
-												</span>
+									{p.covers ? (
+										<div className='hero-quad'>
+											<div className='card'>
+												<div className='stat-lbl'>
+													Estimated food cost lost
+													<span className={`tag tag-${p.costLost.status} internal-only`}>
+														{cap(p.costLost.status)}
+													</span>
+												</div>
+												<div className='stat-mid'>
+													{p.costLost.display ||
+														(p.costLost.low != null
+															? `${money(p.costLost.low)} – ${money(p.costLost.high)}`
+															: 'Not available')}
+												</div>
+												{p.costLost.caption ? (
+													<div className='stat-cap'>{p.costLost.caption}</div>
+												) : p.costLost.low == null && !p.costLost.display ? (
+													<div className='stat-cap'>{p.costLost.note || ''}</div>
+												) : null}
 											</div>
-											<div className='stat-mid'>
-												{money(p.costLost.perLb)}
-												<span className='u'>/lb</span>
+											<div className='card'>
+												<div className='stat-lbl'>
+													Cost per pound wasted
+													<span className={`tag tag-${p.costLost.status} internal-only`}>
+														{cap(p.costLost.status)}
+													</span>
+												</div>
+												<div className='stat-mid'>
+													{money(p.costLost.perLb)}
+													<span className='u'>/lb</span>
+												</div>
+											</div>
+											<div className='card'>
+												<div className='stat-lbl'>
+													Avg. food waste per cover
+													<span className={`tag tag-${p.covers.status} internal-only`}>
+														{cap(p.covers.status)}
+													</span>
+												</div>
+												<div className='stat-mid'>
+													{p.covers.wastePerCoverOz}
+													<span className='u'>oz</span>
+												</div>
+											</div>
+											<div className='card'>
+												<div className='stat-lbl'>
+													Avg. cost per cover
+													<span className={`tag tag-${p.covers.status} internal-only`}>
+														{cap(p.covers.status)}
+													</span>
+												</div>
+												<div className='stat-mid'>{money(p.covers.costPerCover)}</div>
 											</div>
 										</div>
+									) : (
+										<>
+											<div className='card'>
+												<div className='stat-lbl'>
+													Estimated food cost lost
+													<span className={`tag tag-${p.costLost.status} internal-only`}>
+														{cap(p.costLost.status)}
+													</span>
+												</div>
+												<div className='stat-mid'>
+													{p.costLost.display ||
+														(p.costLost.low != null
+															? `${money(p.costLost.low)} – ${money(p.costLost.high)}`
+															: 'Not available')}
+												</div>
+												{p.costLost.caption ? (
+													<div className='stat-cap'>{p.costLost.caption}</div>
+												) : p.costLost.low == null && !p.costLost.display ? (
+													<div className='stat-cap'>{p.costLost.note || ''}</div>
+												) : null}
+											</div>
+											{p.costLost.perLb != null && (
+												<div className='card'>
+													<div className='stat-lbl'>
+														Cost per pound wasted
+														<span className={`tag tag-${p.costLost.status} internal-only`}>
+															{cap(p.costLost.status)}
+														</span>
+													</div>
+													<div className='stat-mid'>
+														{money(p.costLost.perLb)}
+														<span className='u'>/lb</span>
+													</div>
+												</div>
+											)}
+										</>
 									)}
 								</div>
 							</section>

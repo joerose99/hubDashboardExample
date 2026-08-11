@@ -29,6 +29,13 @@ northBethesda:{
          "are marked LOW confidence; one Keany invoice line (pre-cut fruit case weight, ASM-03) "+
          "would resolve the largest of them."},
 
+  covers:{status:"confirmed",
+    banquetActual:1846, restaurantActual:1486, corbyMarketActual:621, irdActual:70,
+    wastePerCoverOz:"0.54",
+    costPerCover:0.08,
+    wasteCaption:"113.0 lbs ÷ 3,332 covers (Banquet 1,846 + Restaurant 1,486). Corby Market and In Room Dining excluded.",
+    costCaption:"$269.56 ÷ 3,332 covers, same basis."},
+
   wasteType:{status:"confirmed",
     rows:[{label:"Preconsumer",pct:61.1,color:"#1B5E3F"},
           {label:"Postconsumer",pct:38.9,color:"#8FA99A"}],
