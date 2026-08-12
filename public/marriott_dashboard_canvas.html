@@ -1,4 +1,246 @@
-/* Multi-week Marriott portfolio dashboard data. */
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BioGreen360 — Marriott Portfolio Dashboard Canvas</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#1F2023; --muted:#5B5F66;
+  --bone:#F5F5F6; --paper:#FFF; --line:#E3E5E8; --line-strong:#C7CBD1;
+  --brass:#1D9A3B; --brass-bg:#DFF0E1; --brass-line:#BFE2C4; --brass-dark:#146B29; --offwhite:#F4F3EF;
+  --flag:#F55D51; --flag-bg:#FDECEA; --flag-line:#F3B4AE;
+  --r:16px; --pad:22px; --maxw:1240px;
+  --f-ui:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  --f-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;}
+body{margin:0;background:var(--bone);color:var(--ink);font-family:var(--f-ui);
+  font-size:15px;line-height:1.5;font-variant-numeric:tabular-nums;}
+h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-0.015em;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px;}
+
+/* provenance */
+.tag{display:inline-flex;align-items:center;gap:5px;font-family:var(--f-mono);
+  font-size:9.5px;font-weight:500;letter-spacing:.09em;text-transform:uppercase;
+  padding:3px 10px;border-radius:999px;white-space:nowrap;vertical-align:middle;}
+.tag::before{content:"";width:5px;height:5px;border-radius:50%;flex:none;}
+.tag-confirmed{background:var(--brass-bg);color:var(--brass);} .tag-confirmed::before{background:var(--brass);}
+.tag-estimated{background:#fff;color:var(--ink);border:1px solid var(--brass-line);padding:2px 9px;}
+.tag-estimated::before{background:transparent;border:1px solid var(--brass);}
+.tag-pending{background:var(--flag);color:#fff;} .tag-pending::before{background:#fff;}
+.prov-note{font-family:var(--f-mono);font-size:11px;line-height:1.55;color:var(--muted);
+  margin-top:10px;padding-left:11px;border-left:2px solid var(--line-strong);}
+body.present .internal-only{display:none !important;}
+
+/* header */
+header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);
+  backdrop-filter:blur(9px);border-bottom:1px solid var(--line);}
+.hbar{display:flex;align-items:center;gap:18px;padding:14px 0;flex-wrap:wrap;}
+.brand .b1{font-family:var(--f-mono);font-size:10px;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--brass);}
+.brand .b2{font-size:16px;font-weight:600;letter-spacing:-.02em;}
+.hspace{flex:1;}
+.picker{display:flex;gap:0;border:1px solid var(--line-strong);border-radius:10px;
+  overflow:hidden;background:var(--offwhite);}
+.picker button{font-family:var(--f-ui);font-size:12.5px;font-weight:500;
+  background:transparent;border:0;padding:9px 14px;cursor:pointer;color:var(--muted);
+  border-right:1px solid var(--line);transition:background .15s,color .15s;}
+.picker button:last-child{border-right:0;}
+.picker button[aria-pressed="true"]{background:var(--brass-dark);color:#fff;}
+.picker button:focus-visible{outline:2px solid var(--brass);outline-offset:-2px;}
+.week-picker{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 4px;}
+.week-picker button{font-family:var(--f-mono);font-size:11px;font-weight:500;
+  background:var(--paper);border:1px solid var(--line-strong);color:var(--muted);
+  padding:6px 12px;border-radius:999px;cursor:pointer;transition:background .15s,color .15s,border-color .15s;}
+.week-picker button:hover{border-color:var(--brass);color:var(--ink);}
+.week-picker button[aria-pressed="true"]{background:var(--brass-dark);color:#fff;border-color:var(--brass-dark);}
+.week-picker button:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+.toggle{display:inline-flex;align-items:center;gap:8px;font-family:var(--f-mono);
+  font-size:10.5px;font-weight:500;letter-spacing:.07em;text-transform:uppercase;
+  background:var(--paper);border:1px solid var(--line-strong);color:var(--ink);
+  padding:9px 13px;border-radius:10px;cursor:pointer;}
+.toggle:hover{border-color:var(--brass);}
+.toggle:focus-visible{outline:2px solid var(--brass);outline-offset:2px;}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--ink);flex:none;}
+body.present .dot{background:var(--brass);}
+
+section{padding:32px 0;}
+.shead{display:flex;align-items:baseline;gap:12px;margin-bottom:16px;flex-wrap:wrap;}
+.shead h2{font-size:19px;}
+.eyebrow{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--brass-dark);margin-bottom:5px;}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:var(--pad);}
+.card-pending{border-style:dashed;border-color:var(--line-strong);
+  background:repeating-linear-gradient(135deg,rgba(245,93,81,.03) 0 9px,transparent 9px 18px),var(--paper);}
+.grid{display:grid;gap:14px;} .g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.15fr 1fr;gap:14px;}
+.hero-with-quad{grid-template-columns:1fr 1.4fr;}
+.hero-quad{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:auto auto;gap:14px;}
+.hero .card{display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;padding:18px 22px;}
+.hero .legend{justify-content:center;}
+.hero .splitbar{width:100%;}
+.stat-lbl{font-family:var(--f-mono);font-size:10.5px;font-weight:500;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--muted);display:flex;align-items:center;gap:9px;flex-wrap:wrap;
+  justify-content:center;}
+.stat-big{font-size:clamp(38px,5.6vw,56px);font-weight:700;letter-spacing:-.035em;
+  line-height:1;margin:14px 0 4px;}
+.stat-big .u{font-size:.36em;font-weight:500;color:var(--muted);margin-left:6px;letter-spacing:0;}
+.stat-mid .u{font-size:.4em;font-weight:500;color:var(--muted);margin-left:8px;letter-spacing:0;}
+.stat-mid{font-size:clamp(24px,3.4vw,32px);font-weight:700;letter-spacing:-.028em;
+  line-height:1.1;margin:14px 0 4px;}
+.stat-placeholder{font-size:15px;font-weight:600;color:var(--muted);margin:14px 0 4px;
+  font-style:italic;}
+.stat-cap{font-size:13px;color:var(--muted);}
+.splitbar{display:flex;height:9px;border-radius:999px;overflow:hidden;margin:16px 0 11px;}
+.splitbar span{display:block;height:100%;}
+.legend{display:flex;flex-wrap:wrap;gap:14px;}
+.legend div{display:flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);}
+.swatch{width:9px;height:9px;border-radius:3px;flex:none;}
+.legend b{color:var(--ink);font-weight:600;}
+
+/* insights + menu attribution, side by side */
+.insights-grid{display:grid;grid-template-columns:1.3fr 1fr;gap:20px;align-items:start;}
+.insights-grid table th.sortable{cursor:pointer;user-select:none;}
+.insights-grid table th.sortable:hover{color:var(--ink);}
+
+/* recs */
+.rec{background:var(--paper);border:1px solid var(--line);border-left:3px solid var(--brass);
+  border-radius:var(--r);padding:18px 20px;margin-bottom:11px;}
+.rec-hi{border-left-color:var(--flag);}
+.rec summary{display:flex;align-items:flex-start;gap:10px;cursor:pointer;list-style:none;}
+.rec summary::-webkit-details-marker{display:none;}
+.rec summary::marker{content:'';}
+.rec-tagstack{display:flex;flex-direction:column;align-items:flex-start;gap:5px;
+  flex:none;min-width:96px;padding-top:1px;}
+.rec-savings{font-weight:700;font-size:12px;color:var(--brass-dark);line-height:1.2;}
+.rec-head{flex:1;min-width:0;}
+.rec h3{font-size:15.5px;margin-bottom:4px;}
+.rec-caption{font-family:var(--f-mono);font-size:11px;color:var(--muted);line-height:1.5;}
+.rec-arrow{flex:none;width:9px;height:9px;margin-top:5px;border-right:2px solid var(--muted);
+  border-bottom:2px solid var(--muted);transform:rotate(45deg);transition:transform .15s;}
+.rec[open] .rec-arrow{transform:rotate(225deg);margin-top:9px;}
+.rec-body{margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
+.rec p{margin:0;font-size:14px;color:#2C3630;line-height:1.55;}
+.pri{font-family:var(--f-mono);font-size:9.5px;font-weight:600;letter-spacing:.11em;
+  text-transform:uppercase;padding:3px 7px;border-radius:999px;}
+.pri-high{background:var(--flag-bg);border:1px solid var(--flag-line);color:var(--flag);}
+.pri-med{background:var(--brass-bg);color:var(--ink);}
+.pri-cost{background:var(--brass-bg);color:var(--brass);}
+.rec .fixme{font-family:var(--f-mono);font-size:10.5px;color:var(--flag);margin-top:10px;
+  padding:7px 9px;background:var(--flag-bg);border-radius:8px;line-height:1.5;}
+@keyframes rec-cost-pulse{
+  0%,100%{box-shadow:0 0 0 1.5px var(--brass-dark), 0 0 6px 1px rgba(29,154,59,.35);}
+  50%{box-shadow:0 0 0 2.5px var(--brass-dark), 0 0 18px 5px rgba(29,154,59,.65);}
+}
+.rec-cost-glow{animation:rec-cost-pulse 2.2s ease-in-out infinite;border-left-color:transparent;}
+@media (prefers-reduced-motion: reduce){
+  .rec-cost-glow{animation:none;box-shadow:0 0 0 2px var(--brass-dark);}
+}
+
+/* bars */
+.bars{display:flex;flex-direction:column;gap:11px;margin-top:4px;}
+.bar-row{display:grid;grid-template-columns:1fr auto;gap:5px 12px;align-items:baseline;}
+.bar-name{font-size:13.5px;} .bar-val{font-family:var(--f-mono);font-size:12.5px;color:var(--muted);}
+.bar-track{grid-column:1/-1;height:7px;background:#EDF0EC;border-radius:999px;overflow:hidden;}
+.bar-fill{height:100%;border-radius:999px;}
+.bar-cost{grid-column:1/-1;font-family:var(--f-mono);font-size:11px;color:var(--muted);margin-top:-2px;}
+
+/* table */
+table{width:100%;border-collapse:collapse;font-size:13.5px;}
+th{text-align:left;font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--muted);padding:0 0 9px;border-bottom:1px solid var(--line-strong);}
+td{padding:9px 0;border-bottom:1px solid var(--line);}
+th.num,td.num{text-align:right;font-family:var(--f-mono);font-size:12.5px;}
+tr:last-child td{border-bottom:none;}
+.suspect{color:var(--flag);font-family:var(--f-mono);font-size:10.5px;}
+
+.banner{display:flex;gap:13px;align-items:flex-start;background:var(--flag-bg);
+  border:1px solid var(--flag-line);border-radius:12px;padding:14px 16px;margin-bottom:16px;}
+.banner .bi{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.1em;
+  color:var(--flag);flex:none;padding-top:2px;}
+.banner p{margin:0;font-size:13.5px;line-height:1.55;color:#4A3D18;}
+
+.empty{padding:30px 22px;text-align:center;color:var(--muted);font-size:14px;}
+
+/* impact */
+.impact{background:var(--ink);color:#EDF1EE;border-radius:var(--r);padding:26px var(--pad);}
+.impact .eyebrow{color:var(--brass-line);}
+.imp-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px;margin-top:18px;}
+.imp-v{font-size:25px;font-weight:700;letter-spacing:-.03em;line-height:1.1;}
+.imp-l{font-family:var(--f-mono);font-size:10px;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--brass-line);margin-top:5px;line-height:1.45;}
+
+/* comparison (unused currently, kept for structural compatibility) */
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);
+  border-radius:var(--r);overflow:hidden;background:var(--paper);}
+.cmp-col{padding:22px;}
+.cmp-col:first-child{border-right:1px solid var(--line);}
+.cmp-name{font-size:16px;font-weight:600;margin-bottom:3px;}
+.cmp-kind{font-family:var(--f-mono);font-size:10px;letter-spacing:.11em;text-transform:uppercase;
+  color:var(--brass-dark);margin-bottom:18px;}
+.cmp-item{padding:13px 0;border-bottom:1px solid var(--line);}
+.cmp-item:last-child{border-bottom:none;}
+.cmp-k{font-family:var(--f-mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:4px;}
+.cmp-v{font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.25;}
+.cmp-v small{font-size:13px;font-weight:500;color:var(--muted);display:block;margin-top:2px;
+  letter-spacing:0;line-height:1.4;}
+.cmp-thesis{background:var(--ink);color:#EDF1EE;border-radius:var(--r);padding:22px var(--pad);
+  margin-top:14px;font-size:15px;line-height:1.6;}
+.cmp-thesis b{color:#fff;}
+
+/* portfolio (unused currently, kept for structural compatibility) */
+.pf-row{display:grid;grid-template-columns:1.6fr .9fr 1fr auto;gap:14px;align-items:center;
+  padding:13px 0;border-bottom:1px solid var(--line);}
+.pf-row:last-child{border-bottom:none;}
+.pf-name{font-weight:600;font-size:14px;}
+.pf-meta{font-family:var(--f-mono);font-size:11.5px;color:var(--muted);}
+.pf-bar{height:7px;background:#EDF0EC;border-radius:999px;overflow:hidden;}
+.pf-bar span{display:block;height:100%;background:var(--brass);border-radius:999px;}
+.pf-val{font-family:var(--f-mono);font-size:13px;font-weight:600;text-align:right;}
+
+/* backfill (unused currently, kept for structural compatibility) */
+.bf{display:flex;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);align-items:flex-start;}
+.bf:last-child{border-bottom:none;}
+.bf-who{font-family:var(--f-mono);font-size:10px;font-weight:600;letter-spacing:.08em;
+  text-transform:uppercase;color:#fff;background:var(--brass);padding:3px 8px;border-radius:999px;
+  flex:none;min-width:76px;text-align:center;}
+.bf-b{background:var(--ink);} .bf-c{background:var(--flag);}
+.bf-t{font-size:13.5px;line-height:1.5;}
+.bf-t code{font-family:var(--f-mono);font-size:11.5px;background:#EDF0EC;padding:1px 5px;border-radius:3px;}
+
+footer{padding:26px 0 44px;border-top:1px solid var(--line);font-family:var(--f-mono);
+  font-size:11px;color:var(--muted);line-height:1.7;}
+
+@media (max-width:1000px){
+  .hero,.cmp,.insights-grid,.hero-quad{grid-template-columns:1fr;}
+  .cmp-col:first-child{border-right:0;border-bottom:1px solid var(--line);}
+  .g3{grid-template-columns:1fr;}
+  .imp-grid{grid-template-columns:repeat(3,1fr);}
+}
+@media (max-width:680px){
+  .wrap{padding:0 16px;}
+  .imp-grid{grid-template-columns:repeat(2,1fr);}
+  .pf-row{grid-template-columns:1fr auto;} .pf-bar{display:none;}
+  .picker{width:100%;} .picker button{flex:1;}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;}}
+</style>
+
+<body>
+<script>
+/* ================================================================
+   BACKFILL HERE. Every figure on the page comes from this object.
+   status: confirmed = live production data
+           estimated = real mechanism, placeholder inputs
+           pending   = not available, never presented as real
+   ================================================================ */
 const DATA = {
 
 default:'northBethesda',
@@ -453,5 +695,274 @@ dtc:{
 }
 },
 };
+</script>
 
-export default DATA;
+<header>
+  <div class="wrap hbar">
+    <div class="brand">
+      <div class="b1">BioGreen360</div>
+      <div class="b2" id="propName"></div>
+    </div>
+    <div class="hspace"></div>
+    <div class="picker" id="picker" role="group" aria-label="Select property"></div>
+    <button class="toggle" id="tg"><span class="dot"></span><span id="tgLabel">Internal view</span></button>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <div id="propView"></div>
+
+  <footer><div id="foot"></div></footer>
+</main>
+
+<script>
+const $=id=>document.getElementById(id);
+const n=(v,d=0)=>v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
+const money=v=>'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
+const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+let current=DATA.default;
+let currentWeekIdx=DATA.properties[current].weeks.length-1;
+
+/* ---------- picker ---------- */
+$('picker').innerHTML=Object.keys(DATA.properties).map(k=>
+  `<button data-k="${k}" aria-pressed="${k===current}">${DATA.properties[k].name}</button>`).join('');
+$('picker').addEventListener('click',e=>{
+  const b=e.target.closest('button'); if(!b) return;
+  current=b.dataset.k;
+  currentWeekIdx=DATA.properties[current].weeks.length-1;
+  [...$('picker').children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===current));
+  render();
+});
+
+/* ---------- week picker (event delegation, since propView content is replaced each render) ---------- */
+$('propView').addEventListener('click',e=>{
+  const wb=e.target.closest('[data-week-idx]'); if(!wb) return;
+  currentWeekIdx=parseInt(wb.dataset.weekIdx,10);
+  render();
+});
+
+$('propView').addEventListener('click',e=>{
+  const th=e.target.closest('th[data-sort]'); if(!th) return;
+  const key=th.dataset.sort;
+  if(menuSort.key===key){ menuSort.dir = menuSort.dir==='asc' ? 'desc' : 'asc'; }
+  else { menuSort.key=key; menuSort.dir='desc'; }
+  render();
+});
+
+/* ---------- property view ---------- */
+function render(){
+  const prop=DATA.properties[current];
+  const wk=prop.weeks[currentWeekIdx];
+  const p={...prop, ...wk};
+  $('propName').textContent=p.full;
+  let h='';
+
+  /* hero */
+  h+=`<section><div class="eyebrow">${p.period} · ${p.name}</div>`;
+  if(prop.weeks.length>1){
+    h+=`<div class="week-picker" role="group" aria-label="Select week">${prop.weeks.map((w,i)=>
+      `<button data-week-idx="${i}" aria-pressed="${i===currentWeekIdx}">${w.weekLabel}</button>`).join('')}</div>`;
+  }
+  if(p.noAnalysis){
+    h+=`<div class="card card-pending">
+      <div class="banner"><span class="bi">NO DATA</span>
+      <p><b>No AI analysis available for this hub yet.</b> Volume and offset figures below are
+      real. Everything analytical is absent, so nothing weekly can be shown for this property.</p></div>
+      </div></section>`;
+  }else{
+    const cov=p.covers;
+    h+=`<div class="hero${p.costLost.perLb!=null?' hero-with-quad':''}">
+      <div class="card">
+        <div class="stat-lbl">Total food waste captured
+          <span class="tag tag-confirmed internal-only">Confirmed</span></div>
+        <div class="stat-big">${n(p.totalLbs.value,1)}<span class="u">lbs</span></div>
+        ${p.periodNote?`<div class="stat-cap">${p.periodNote}</div>`:''}
+        <div class="splitbar">${p.wasteType.rows.map(r=>
+          `<span style="width:${r.pct}%;background:${r.color}"></span>`).join('')}</div>
+        <div class="legend">${p.wasteType.rows.map(r=>
+          `<div><i class="swatch" style="background:${r.color}"></i>${r.label} <b>${r.pct}%</b></div>`).join('')}</div>
+      </div>
+      ${p.costLost.perLb!=null?`<div class="hero-quad">
+        <div class="card">
+          <div class="stat-lbl">Estimated food cost lost
+            <span class="tag tag-${p.costLost.status} internal-only">${cap(p.costLost.status)}</span></div>
+          <div class="stat-mid">${p.costLost.display || (p.costLost.low!=null?(money(p.costLost.low)+' – '+money(p.costLost.high)):'Not available')}</div>
+          ${p.costLost.caption?`<div class="stat-cap">${p.costLost.caption}</div>`:(p.costLost.low==null&&!p.costLost.display?`<div class="stat-cap">${p.costLost.note||''}</div>`:'')}
+        </div>
+        <div class="card">
+          <div class="stat-lbl">Cost per pound wasted
+            <span class="tag tag-${p.costLost.status} internal-only">${cap(p.costLost.status)}</span></div>
+          <div class="stat-mid">${money(p.costLost.perLb)}<span class="u">/lb</span></div>
+        </div>
+        <div class="card">
+          <div class="stat-lbl">Avg. food waste per cover
+            ${cov&&cov.wastePerCoverOz!=null?`<span class="tag tag-${cov.status||'estimated'} internal-only">${cap(cov.status||'estimated')}</span>`:'<span class="tag tag-pending internal-only">Needs input</span>'}</div>
+          ${cov&&cov.wastePerCoverOz!=null?`<div class="stat-mid">${cov.wastePerCoverOz}<span class="u">oz</span></div>${cov.wasteCaption?`<div class="stat-cap">${cov.wasteCaption}</div>`:''}`:`<div class="stat-placeholder">Cover entry needed</div>`}
+        </div>
+        <div class="card">
+          <div class="stat-lbl">Avg. cost per cover
+            ${cov&&cov.costPerCover!=null?`<span class="tag tag-${cov.status||'estimated'} internal-only">${cap(cov.status||'estimated')}</span>`:'<span class="tag tag-pending internal-only">Needs input</span>'}</div>
+          ${cov&&cov.costPerCover!=null?`<div class="stat-mid">${money(cov.costPerCover)}</div>${cov.costCaption?`<div class="stat-cap">${cov.costCaption}</div>`:''}`:`<div class="stat-placeholder">Cover entry needed</div>`}
+        </div>
+      </div>`:`<div class="card">
+        <div class="stat-lbl">Estimated food cost lost
+          <span class="tag tag-${p.costLost.status} internal-only">${cap(p.costLost.status)}</span></div>
+        <div class="stat-mid">${p.costLost.display || (p.costLost.low!=null?(money(p.costLost.low)+' – '+money(p.costLost.high)):'Not available')}</div>
+        ${p.costLost.caption?`<div class="stat-cap">${p.costLost.caption}</div>`:(p.costLost.low==null&&!p.costLost.display?`<div class="stat-cap">${p.costLost.note||''}</div>`:'')}
+      </div>`}
+    </div></section>`;
+
+    /* actionable insights + menu attribution, side by side */
+    const recs = wk.recommendations || prop.recommendations;
+    const m=p.menuAttribution, st=m.status;
+    h+=`<section><div class="insights-grid">
+      <div>
+        <div class="shead"><div>
+          <div class="eyebrow">Generated from this week's captures</div>
+          <h2>Actionable Insights</h2></div>
+          <span class="tag tag-confirmed internal-only">Confirmed</span></div>`;
+    if(recs.note){
+      h+=`<div class="stat-cap" style="margin:-6px 0 14px;">${recs.note}</div>`;
+    }
+    const priOrder={high:0,med:1,low:2};
+    h+=[...recs.rows].sort((a,b)=>{
+      const ca=a.costDriven?0:1, cb=b.costDriven?0:1;
+      if(ca!==cb) return ca-cb;
+      const pa=priOrder[a.pri]??3, pb=priOrder[b.pri]??3;
+      return pa-pb;
+    }).map(r=>`
+      <details class="rec ${r.pri==='high'?'rec-hi':''} ${r.costDriven?'rec-cost-glow':''}">
+        <summary>
+          <div class="rec-tagstack">
+            ${r.costDriven?'':`<span class="pri ${r.pri==='high'?'pri-high':'pri-med'}">${r.pri==='high'?'High':'Medium'}</span>`}
+            ${r.costDriven?'<span class="pri pri-cost">$ Cost impact</span>':''}
+            ${r.estSavings?`<span class="rec-savings">Est. ${r.estSavings} saved</span>`:''}
+          </div>
+          <div class="rec-head">
+            <h3>${r.title}</h3>
+            <div class="rec-caption">${r.support}</div>
+          </div>
+          <span class="rec-arrow" aria-hidden="true"></span>
+        </summary>
+        <div class="rec-body">
+          <p>${r.body}</p>
+          ${r.fixme?`<div class="fixme internal-only">${r.fixme}</div>`:''}
+        </div>
+      </details>`).join('');
+    h+=`</div>
+      <div>
+        <div class="shead"><div>
+          <div class="eyebrow">Waste traced to the menu</div><h2>Menu Item Attribution</h2></div>
+          <span class="tag tag-${st} internal-only">${cap(st)}</span></div>`;
+    if(st==='pending'){
+      const reason = m.pendingReason || "Menu attribution here is derived from a single "+
+        "daypart, so the figures are skewed and are being withheld rather than presented.";
+      h+=`<div class="card card-pending">
+        <div class="banner"><span class="bi">HELD</span>
+        <p><b>Not shown pending a data fix.</b> ${reason}
+        Ingredient-level analysis above is unaffected: it is read from the image, not the menu.</p></div>
+        <div class="internal-only">${tbl(m.rows,true)}</div></div>`;
+    }else{
+      const hasCost = m.rows.some(r=>r.cost!=null);
+      const rowLbs = m.rows.reduce((s,r)=>s+r.lbs,0);
+      const rowCost = m.rows.reduce((s,r)=>s+(r.cost||0),0);
+      const capParts=[];
+      if(p.totalLbs.value!=null) capParts.push(`${n(rowLbs,2)} of the property's ${n(p.totalLbs.value,1)} lbs total`);
+      if(hasCost && p.costLost.display) capParts.push(`${money(rowCost)} of its ${p.costLost.display} total weekly food cost`);
+      const cap2 = capParts.length? `<div class="stat-cap" style="margin-bottom:12px;">Rows below cover ${capParts.join(' and ')} — the items the model could confidently trace to a specific menu dish. The remainder is real waste without a confident menu match, not missing data.</div>`:'';
+      h+=`<div class="card">${cap2}${tbl(m.rows,false)}</div>`;
+    }
+    h+=`</div>
+    </div></section>`;
+
+    /* breakdown */
+    const hasCategories = !!(p.categories && p.categories.rows);
+    h+=`<section><div class="shead"><div>
+      <div class="eyebrow">Where it comes from</div><h2>Breakdown</h2></div>
+      <span class="tag tag-confirmed internal-only">Confirmed</span></div>
+      <div class="grid ${hasCategories?'g3':'g2'}">
+        <div class="card"><div class="stat-lbl" style="margin-bottom:16px;">By department</div>
+          <div style="display:flex;justify-content:center;">${donut(p.department.rows)}</div>
+          <div class="legend" style="margin-top:16px;justify-content:center;">
+          ${p.department.rows.map(r=>
+            `<div><i class="swatch" style="background:${r.color}"></i>${r.label} <b>${r.pct}%</b></div>`).join('')}
+          </div></div>
+        ${hasCategories?`<div class="card"><div class="stat-lbl" style="margin-bottom:16px;">By category</div>
+          <div class="bars">${catBars(p.categories.rows)}</div></div>`:''}
+        <div class="card"><div class="stat-lbl" style="margin-bottom:16px;">Top wasted ingredients</div>
+          <div class="bars">${ingBars(p.topIngredients.rows)}</div>
+          ${p.topIngredients.note?`<div class="stat-cap" style="margin-top:10px;">${p.topIngredients.note}</div>`:''}</div>
+      </div></section>`;
+  }
+
+  /* impact */
+  const a=p.allTime;
+  const cells=[[n(a.recycledTons,2),'tons food<br>recycled'],[n(a.co2Tons,2),'tons CO<sub>2</sub><br>sequestered'],
+    [n(a.acres),'acres<br>fertilised'],[n(a.trees),'tree seedlings<br>grown 10 yrs'],
+    [n(a.homes),'homes<br>powered'],[n(a.miles),'miles not<br>driven']];
+  h+=`<section><div class="impact">
+    <div class="eyebrow">Since install · ${p.installDate}</div>
+    <h2 style="color:#F3F7F4;font-size:19px;">Diverted from landfill</h2>
+    <div class="imp-grid">${cells.map(c=>
+      `<div><div class="imp-v">${c[0]}</div><div class="imp-l">${c[1]}</div></div>`).join('')}</div>
+  </div></section>`;
+
+  $('propView').innerHTML=h;
+}
+
+function donut(rows){
+  const R=52,C=2*Math.PI*R; let off=0;
+  const arcs=rows.map(r=>{const len=C*r.pct/100;
+    const s=`<circle cx="70" cy="70" r="${R}" fill="none" stroke="${r.color}" stroke-width="17"
+      stroke-dasharray="${len} ${C-len}" stroke-dashoffset="${-off}" transform="rotate(-90 70 70)"></circle>`;
+    off+=len; return s;}).join('');
+  return `<svg viewBox="0 0 140 140" width="152" height="152" role="img" aria-label="Waste by department">
+    ${arcs}<text x="70" y="66" text-anchor="middle" font-family="Archivo,sans-serif" font-size="21"
+    font-weight="700" fill="#131C18">${rows[0].pct}%</text>
+    <text x="70" y="82" text-anchor="middle" font-family="IBM Plex Mono,monospace" font-size="8"
+    letter-spacing="1" fill="#66716A">${rows[0].label.toUpperCase()}</text></svg>`;
+}
+function catBars(rows){
+  const max=Math.max(...rows.map(r=>r.pct));
+  const sh=['#1B5E3F','#2E6E4C','#417E59','#548E66','#7FA890','#A9C2B4'];
+  return rows.map((r,i)=>`<div class="bar-row"><span class="bar-name">${r.label}</span>
+    <span class="bar-val">${r.pct.toFixed(1)}%</span>
+    <div class="bar-track"><div class="bar-fill" style="width:${r.pct/max*100}%;background:${sh[i]}"></div></div>
+    ${r.costPerLb!=null?`<div class="bar-cost">${money(r.costPerLb)}/lb · ${r.costShare.toFixed(1)}% of the week's food cost</div>`:''}
+    </div>`).join('');
+}
+function ingBars(rows){
+  const max=Math.max(...rows.map(r=>r.lbs));
+  return rows.map(r=>`<div class="bar-row"><span class="bar-name">${r.name}</span>
+    <span class="bar-val">${r.lbs.toFixed(2)} lbs</span>
+    <div class="bar-track"><div class="bar-fill" style="width:${r.lbs/max*100}%;background:#1B5E3F"></div></div>
+    </div>`).join('');
+}
+
+let menuSort={key:'lbs',dir:'desc'};
+function tbl(rows,flags){
+  const hasCost = rows.some(r=>r.cost!=null);
+  const sorted=[...rows].sort((a,b)=>{
+    const av=a[menuSort.key]??-Infinity, bv=b[menuSort.key]??-Infinity;
+    return menuSort.dir==='asc' ? av-bv : bv-av;
+  });
+  const arrow=key=>menuSort.key===key?(menuSort.dir==='asc'?' \u2191':' \u2193'):'';
+  return `<table><thead><tr><th>Menu item</th>${flags?'<th>Issue</th>':''}
+    <th class="num sortable" data-sort="lbs">Est. lbs${arrow('lbs')}</th>${hasCost?`<th class="num sortable" data-sort="cost">Est. cost${arrow('cost')}</th>`:''}</tr></thead><tbody>`+
+    sorted.map(r=>`<tr><td>${r.item}</td>${flags?`<td class="suspect">${r.flag||''}</td>`:''}
+    <td class="num">${r.lbs.toFixed(2)}</td>${hasCost?`<td class="num">${r.cost!=null?money(r.cost):''}</td>`:''}</tr>`).join('')+`</tbody></table>`;
+}
+
+
+
+$('foot').innerHTML='';
+
+$('tg').addEventListener('click',()=>{
+  const pr=document.body.classList.toggle('present');
+  $('tgLabel').textContent=pr?'Presentation view':'Internal view';
+});
+
+render();
+</script>
+</body>
