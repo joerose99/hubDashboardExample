@@ -315,7 +315,7 @@ dtc:{
 
   weeks:[
 {
-  weekLabel:"Jul 12–19", period:"July 12 – 19, 2026", periodNote:"7 of 46 feeds excluded from weight totals (5 negative + 2 unwired sensor readings).",
+  weekLabel:"Jul 12–19", period:"July 12 – 19, 2026", periodNote:"7 of 46 recorded weigh-ins were excluded due to scale readings indicating sensor issues that should be checked.",
   totalLbs:{value:794.6,status:"confirmed"},
   costLost:{low:null,high:null,status:"estimated",display:"$3,246.91",perLb:4.09,
     caption:"Category-rate model applied to this week's data.",
@@ -335,18 +335,18 @@ dtc:{
       {item:"Zucchini",lbs:51.76,flag:""},
       {item:"Button Mushrooms",lbs:38.62,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"Liquid Eggs is the top item by both weight and frequency this week",
-     body:"Liquid Eggs leads the menu log at 127.29 lbs across 8 feeds -- more of both weight and recurrence than any other item this week. Egg-station batch sizing remains the clearest, most repeatable lever available.",
-     support:"Liquid Eggs: 127.29 lbs across 8 feeds, the highest of any item this week."},
-    {pri:"high",costDriven:true,title:"Cost concentration runs opposite to weight this week -- check Proteins, not just Starches",
-     body:"Starches/Grains are 21.9% of this week's waste by weight but only 12.6% of its cost -- the widest gap in either direction. Proteins run the other way: only 14.1% of weight but 22.8% of cost. A weight-ranked log alone would point staff at the wrong station first.",
-     support:"Starches/Grains: 21.9% of weight, 12.6% of this week's $3,246.91 cost ($2.35/lb). Proteins: 14.1% of weight, 22.8% of cost ($6.62/lb)."},
-    {pri:"med",title:"Pineapple and watermelon are large, recurring fruit losses this week",
-     body:"Pineapple (82.37 lbs across 3 feeds) and watermelon (54.63 lbs across 3 feeds) are both sizable, repeat items -- consistent with the melon/fruit waste pattern already flagged as recurring at this property.",
+    {pri:"high",title:"Cut portion sizes at the egg station",
+     body:"Liquid Eggs leads the menu log at 127.29 lbs across 8 feeds — more weight and more recurrence than any other item this week. Egg-station batch sizing remains the clearest, most repeatable lever available at this property.",
+     support:"Liquid Eggs: 127.29 lbs across 8 feeds — the highest of any item this week."},
+    {pri:"high",costDriven:true,title:"Check Proteins on a cost basis, not just Starches on a weight basis",
+     body:"Starches/Grains are 21.9% of this week's waste by weight but only 12.6% of its cost — the widest gap in either direction. Proteins run the opposite way: only 14.1% of weight but 22.8% of cost. A weight-ranked log alone would point staff at the wrong station first.",
+     support:"Starches/Grains: 21.9% of weight, 12.6% of $3,246.91 cost ($2.35/lb). Proteins: 14.1% of weight, 22.8% of cost ($6.62/lb)."},
+    {pri:"med",title:"Address recurring pineapple and watermelon waste",
+     body:"Pineapple (82.37 lbs across 3 feeds) and watermelon (54.63 lbs across 3 feeds) are both sizable, repeat items — consistent with the melon and fruit waste pattern already flagged as recurring at this property.",
      support:"Pineapple: 82.37 lbs across 3 feeds. Watermelon: 54.63 lbs across 3 feeds."}]}
 },
 {
-  weekLabel:"Jul 19–26", period:"July 19 – 26, 2026", periodNote:"No prep sheet exists for this week — correlations fell back to a different week's content. Weight, waste-type, department, and category figures are unaffected (image-derived), but menu attribution below is not reliable for this week specifically.",
+  weekLabel:"Jul 19–26", period:"July 19 – 26, 2026", periodNote:"No banquet prep sheet was available for this specific week, so the menu-item table below draws from a different week's sheet and should be read as directional only. Weight, waste-type, department, and category figures above come directly from image analysis and are unaffected.",
   totalLbs:{value:238.14,status:"confirmed"},
   costLost:{low:null,high:null,status:"estimated",display:"$890.10",perLb:3.74,
     caption:"Category-rate model applied to this week's data.",
@@ -357,10 +357,7 @@ dtc:{
   categories:{status:"estimated",rows:[{label:"Fruits",pct:38.2,costPerLb:3.77,costShare:38.5},{label:"Starches/Grains",pct:35.0,costPerLb:2.35,costShare:22.0},{label:"Vegetables",pct:10.6,costPerLb:3.79,costShare:10.7},{label:"Proteins",pct:7.7,costPerLb:6.62,costShare:13.6},{label:"Other",pct:7.1,costPerLb:7.11,costShare:13.5},{label:"Dairy",pct:1.4,costPerLb:4.2,costShare:1.6}]},
   topIngredients:{status:"confirmed",rows:[{name:"Cantaloupe",lbs:19.3},{name:"Rolled Oats",lbs:17.5},{name:"Watermelon",lbs:16.8}]},
   menuAttribution:{status:"pending",
-    pendingReason:"No prep sheet exists for this specific week, so correlations fell back to "+
-      "a different week's content (a real document, but not the one covering these events). "+
-      "The items below are what that fallback content produced — directionally suggestive, not "+
-      "week-accurate.",
+    pendingReason:"No banquet prep sheet was available for this specific week. The items below are pulled from a different week's sheet as a fallback and should be treated as directional, not week-accurate.",
     rows:[
       {item:"Rolled Oats",lbs:65.39,flag:""},
       {item:"Watermelon",lbs:42.53,flag:""},
@@ -370,12 +367,12 @@ dtc:{
       {item:"Black Beans",lbs:16.74,flag:""},
       {item:"Cherry Tomato",lbs:1.53,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"med",title:"Ingredient-level data still points to a fruit-and-grain breakfast pattern",
-     body:"Even though this week's menu attribution isn't reliable (see the note above), the underlying ingredient data -- unaffected by the menu-context gap -- shows Cantaloupe, Rolled Oats, and Watermelon as the top three, consistent with the recurring breakfast-waste pattern seen in other weeks.",
-     support:"Cantaloupe 19.3 lbs, Rolled Oats 17.5 lbs, Watermelon 16.8 lbs -- ingredient-level data, unaffected by this week's menu-context gap."},
-    {pri:"low",costDriven:true,title:"Starches/Grains show a cost gap in the opposite direction from Week 1",
-     body:"Starches/Grains are 35.0% of this week's waste by weight but only 22.0% of its cost -- the widest gap this week, and a reminder that which category \"costs more than its weight\" can flip week to week rather than being a fixed property-wide pattern.",
-     support:"Starches/Grains: 35.0% of weight, 22.0% of this week's $890.10 cost ($2.35/lb)."}]}
+    {pri:"med",title:"Breakfast fruit-and-grain pattern holds even without reliable menu data",
+     body:"Even though this week's menu attribution isn't reliable (see note above), the underlying ingredient-level data is unaffected and still shows Cantaloupe, Rolled Oats, and Watermelon as the top three — consistent with the recurring breakfast-waste pattern seen in other weeks.",
+     support:"Cantaloupe 19.3 lbs, Rolled Oats 17.5 lbs, Watermelon 16.8 lbs — ingredient-level data, unaffected by this week's menu-attribution gap."},
+    {pri:"low",costDriven:true,title:"Cost-to-weight gaps can flip week to week — worth tracking, not assuming",
+     body:"Starches/Grains are 35.0% of this week's waste by weight but only 22.0% of its cost — the widest gap this week. Which category costs more than its weight share can shift from week to week rather than being a fixed pattern, so this is worth tracking over time rather than treating any single week as the rule.",
+     support:"Starches/Grains: 35.0% of weight, 22.0% of $890.10 cost ($2.35/lb)."}]}
 },
 {
   weekLabel:"Jul 26–Aug 2", period:"July 26 – August 2, 2026", periodNote:"",
@@ -398,21 +395,21 @@ dtc:{
       {item:"Cantaloupe",lbs:41.12,flag:""},
       {item:"Halved Hardboiled Egg",lbs:38.67,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"Scrambled Eggs tops the log again -- this is a recurring issue, not a one-off",
-     body:"Scrambled Eggs is the largest item this week too, at 86.47 lbs across 4 feeds -- confirming the Week 1 finding wasn't a fluke. Egg-station batch sizing deserves a standing fix, not a one-time adjustment.",
-     support:"Scrambled Eggs: 86.47 lbs across 4 feeds, the highest of any item this week."},
-    {pri:"high",costDriven:true,title:"Two categories punch above their weight in cost this week",
-     body:"\"Other\" is 17.4% of this week's weight but 26.3% of cost -- the widest gap -- and Proteins run a similar pattern at 20.5% of weight versus 28.9% of cost. Both deserve a cost-ranked look alongside the usual weight-ranked review.",
-     support:"Other: 17.4% of weight, 26.3% of this week's $3,851.65 cost ($7.11/lb). Proteins: 20.5% of weight, 28.9% of cost ($6.62/lb)."},
-    {pri:"med",title:"Par Boiled Rice and Green Beans are the next-largest recurring items",
-     body:"Both appear across 4 feeds each -- Par Boiled Rice at 74.12 lbs and Green Beans at 71.23 lbs -- making them worth the same par-level review already warranted for the egg station.",
+    {pri:"high",title:"Make egg-station batch sizing a standing fix, not a one-time adjustment",
+     body:"Scrambled Eggs is the largest item again this week at 86.47 lbs across 4 feeds, confirming the pattern seen in the prior week wasn't a one-off. This points to a standing process fix at the egg station rather than a single adjustment.",
+     support:"Scrambled Eggs: 86.47 lbs across 4 feeds — the highest of any item this week."},
+    {pri:"high",costDriven:true,title:"Add a cost-ranked review alongside the weight-ranked one",
+     body:"\"Other\" is 17.4% of this week's weight but 26.3% of cost — the widest gap — and Proteins follow a similar pattern at 20.5% of weight versus 28.9% of cost. Both categories deserve a cost-ranked look alongside the usual weight-ranked review.",
+     support:"Other: 17.4% of weight, 26.3% of $3,851.65 cost ($7.11/lb). Proteins: 20.5% of weight, 28.9% of cost ($6.62/lb)."},
+    {pri:"med",title:"Extend the par-level review to Par Boiled Rice and Green Beans",
+     body:"Both appear across 4 feeds each — Par Boiled Rice at 74.12 lbs and Green Beans at 71.23 lbs — making them worth the same par-level review already warranted for the egg station.",
      support:"Par Boiled Rice: 74.12 lbs across 4 feeds. Green Beans: 71.23 lbs across 4 feeds."},
-    {pri:"low",title:"A small spoilage share appeared this week -- the only week it has",
-     body:"Spoilage was 1.1% of total waste weight this week, not detected in any other week analyzed at this property. The share is small, but worth a quick check on cold-storage practices given it hasn't appeared before.",
-     support:"Spoilage: 1.1% of total waste weight this week -- not present in any other analyzed week for this property."}]}
+    {pri:"low",title:"Check cold-storage practices after this week's spoilage reading",
+     body:"Spoilage was 1.1% of total waste weight this week, not seen in any other week analyzed at this property. The share is small, but worth a quick check on cold-storage practices given it hasn't appeared before.",
+     support:"Spoilage: 1.1% of total waste weight this week — not present in any other analyzed week for this property."}]}
 },
 {
-  weekLabel:"Aug 2–9", period:"August 2 – 9, 2026", periodNote:"Week in progress — 25 additional feeds captured this week have not yet been analyzed; totals reflect only the 2 already processed. No per-week prep sheet exists yet for this period either, so later analysis may need fallback correlation.",
+  weekLabel:"Aug 2–9", period:"August 2 – 9, 2026", periodNote:"Week in progress — 25 additional feeds captured this week are still being analyzed; totals below reflect only the 2 processed so far. A prep sheet for this specific period isn't available yet either, so once analysis catches up, menu-item detail may initially rely on a nearby week's sheet.",
   totalLbs:{value:44.2,status:"confirmed"},
   costLost:{low:null,high:null,status:"estimated",display:"$152.43",perLb:3.45,
     caption:"Category-rate model applied to this week's data.",
@@ -426,8 +423,8 @@ dtc:{
       {item:"Roasted Broccoli",lbs:29.08,flag:""},
       {item:"Green Beans",lbs:15.12,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"low",title:"Too few feeds this week for a confident pattern -- an early signal only",
-     body:"Only 2 feeds have been analyzed for this week so far (25 additional captured feeds are still pending analysis). Both items logged -- Roasted Broccoli (29.08 lbs) and Green Beans (15.12 lbs) -- are Vegetables from Banquet service. Revisit once the remaining feeds are processed rather than treating this as representative.",
+    {pri:"low",title:"Limited data this week — early signal only",
+     body:"Only 2 feeds have been analyzed so far this week, with 25 additional captured feeds still pending. Both items logged — Roasted Broccoli (29.08 lbs) and Green Beans (15.12 lbs) — are Vegetables from Banquet service. Worth revisiting once the remaining feeds are processed rather than treating this as representative.",
      support:"2 feeds only: Roasted Broccoli (29.08 lbs) and Green Beans (15.12 lbs), both Vegetables, both Banquet."}]}
 },
   ],
