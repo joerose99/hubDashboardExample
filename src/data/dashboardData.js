@@ -194,18 +194,15 @@ maven:{
       {item:"Wild Rice",lbs:22.66,flag:"",cat:"Mixed",cost:76.54},
       {item:"Quesadilla",lbs:13.34,flag:"",cat:"Mixed",cost:79.34}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"Chicken Bowl remains the top item by both weight and frequency",
-     body:"Chicken Bowl leads this week at 186.48 lbs across 10 feeds. Its ingredient-level cost ($732.85) confirms it's driven by real bean/rice/protein composition, not an inflated single-category assumption.",
-     support:"Chicken Bowl: 186.48 lbs across 10 feeds, $732.85 (ingredient-level costing)."},
-    {pri:"high",costDriven:true,title:"Protein cost concentration is the sharpest gap seen at this property so far",
-     body:"Proteins are 33.9% of this week's waste by weight but 52.1% of its cost -- the widest weight-to-cost gap of any week analyzed for Maven.",
-     support:"Proteins: 33.9% of weight, 52.1% of this week's $1,653.87 cost ($6.44/lb)."},
-    {pri:"med",title:"Beef appears as a top raw ingredient this week, unlike most other weeks",
-     body:"\"Beef (raw sliced)\" is a top raw ingredient this week at 25.0 lbs -- not a recurring top item at this property in other weeks, worth a quick check on what drove it.",
-     support:"Beef (raw sliced): 25.0 lbs."},
-    {pri:"low",title:"Menu attribution covers 20 of 23 feeds this week -- the only remaining gap at this property",
-     body:"3 feeds have no analysis at all (no feedContext was ever attached, so no inference ran) and are excluded from every card. This is the only remaining data gap anywhere in Maven's dataset -- every other previously-excluded feed across all four weeks has now been resolved.",
-     support:"20 of 23 feeds (87%) contribute to this week's menu-item table; the remaining 3 have no analysis at all."}]}
+    {pri:"high",title:"Right-size Chicken Bowl portions specifically",
+     body:"Chicken Bowl leads the week at 186.48 lbs across 10 feeds and $732.85 in cost — the top item by both weight and dollar impact. A modest portion cut on this dish alone would move a large share of the week's total.",
+     support:"Chicken Bowl: 186.48 lbs across 10 feeds, $732.85."},
+    {pri:"high",costDriven:true,title:"Protein cost concentration is the sharpest gap seen at this property",
+     body:"Proteins are 33.9% of this week's waste by weight but 52.1% of its cost — the widest weight-to-cost gap of any week analyzed for this property. Worth a direct look at protein portioning and prep.",
+     support:"Proteins: 33.9% of weight, 52.1% of $1,653.87 cost ($6.44/lb)."},
+    {pri:"med",title:"Check what drove this week's unusual raw beef waste",
+     body:"Raw sliced beef shows up as a top ingredient this week at 25.0 lbs — not a typical item at this property in other weeks. Worth a quick check on what changed in prep or ordering.",
+     support:"Beef (raw sliced): 25.0 lbs — not a recurring top item in other weeks."}]}
 },
 {
   weekLabel:"Jul 12–19", period:"July 12 – 19, 2026", periodNote:"Menu attribution is complete this week -- 100% of feeds (27 of 27) are daypart-correct and included in the menu-item table.",
@@ -230,18 +227,18 @@ maven:{
       {item:"House Made Blue Corn Tortillas",lbs:17.51,flag:"",cat:"Mixed",cost:48.62},
       {item:"Chicharrón con Carne",lbs:9.45,flag:"",cat:"Mixed",cost:55.77}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"This week is now fully complete -- 100% of feeds are daypart-correct and menu-attributed",
-     body:"All 27 feeds this week now carry correct daypart routing, up from 20 of 27 before the late-night feeds were resolved. This is the richest fully-covered week analyzed for Maven, and Chicken Bowl grew to 259.83 lbs (12 feeds) once the newly-resolved late-night dinner waste was folded in.",
-     support:"27 of 27 feeds (100%) daypart-correct and menu-attributed. Chicken Bowl: 259.83 lbs across 12 feeds, $855.77."},
-    {pri:"high",title:"This is the most Postconsumer-heavy week analyzed for Maven",
-     body:"Postconsumer waste is 87.8% this week -- guest-facing leftovers dominate almost entirely over kitchen prep waste. Worth a plate-waste observation pass on the restaurant floor during this period.",
-     support:"Postconsumer 87.8% vs Preconsumer 8.9% -- the highest Postconsumer share of any week analyzed for this property."},
-    {pri:"med",title:"Two new late-night dinner items surfaced once these feeds were resolved",
-     body:"\"Beans & Tortillas\" (23.41 lbs) and \"Chicharrón con Carne\" (9.45 lbs) appear this week for the first time -- both are dinner-service items only visible now that the late-night waste is correctly attributed instead of excluded.",
-     support:"Beans & Tortillas: 23.41 lbs, $79.12. Chicharrón con Carne: 9.45 lbs, $55.77 -- both newly surfaced by resolving the late-night feeds."},
-    {pri:"low",costDriven:true,title:"Protein cost concentration remains a real, if smaller, gap this week",
-     body:"Proteins are 10.8% of this week's weight but 20.9% of its cost -- smaller in absolute terms than other weeks, but the same directional pattern.",
-     support:"Proteins: 10.8% of weight, 20.9% of this week's $1,652.00 cost ($6.44/lb)."}]}
+    {pri:"high",title:"Chicken Bowl continues to dominate waste and cost",
+     body:"Chicken Bowl remains the top item this week at 259.83 lbs across 12 feeds — the largest single-item total analyzed at this property to date. This reinforces the case for a standing portion-size review on this dish specifically.",
+     support:"Chicken Bowl: 259.83 lbs across 12 feeds, $855.77."},
+    {pri:"high",title:"Run a plate-waste observation pass on the restaurant floor",
+     body:"Postconsumer waste — food that reached guests but wasn't eaten — is 87.8% this week, the highest share analyzed at this property. Guest-facing leftovers are dominating almost entirely over kitchen prep waste, pointing to portion sizing or menu appeal as the driver rather than prep.",
+     support:"Postconsumer 87.8% vs. Preconsumer 8.9% — the highest Postconsumer share analyzed at this property."},
+    {pri:"med",title:"Review portioning on Beans & Tortillas and Chicharrón con Carne",
+     body:"Both dinner-service items show meaningful waste this week. Worth a portioning check on both as part of the dinner menu review.",
+     support:"Beans & Tortillas: 23.41 lbs, $79.12. Chicharrón con Carne: 9.45 lbs, $55.77."},
+    {pri:"low",costDriven:true,title:"Protein cost concentration holds even at a smaller scale",
+     body:"Proteins are 10.8% of this week's weight but 20.9% of its cost — smaller in absolute terms than other weeks, but the same recurring pattern.",
+     support:"Proteins: 10.8% of weight, 20.9% of $1,652.00 cost ($6.44/lb)."}]}
 },
 {
   weekLabel:"Jul 19–26", period:"July 19 – 26, 2026", periodNote:"Menu attribution is complete this week -- 100% of feeds (37 of 37) are daypart-correct and included in the menu-item table.",
@@ -267,18 +264,15 @@ maven:{
       {item:"Nopales",lbs:17.03,flag:"",cat:"Mixed",cost:58.18},
       {item:"Poblano Romesco Salad",lbs:11.15,flag:"",cat:"Mixed",cost:22.75}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"This week is now fully complete, and remains Maven's richest analyzed week",
-     body:"All 37 feeds are daypart-correct and menu-attributed. Chicken Bowl and Chicken Pozole Blanco together account for $1,112.34 -- close to half of this week's $2,272.73 costed menu-item total.",
-     support:"37 of 37 feeds (100%) daypart-correct. Chicken Bowl: $633.48 (175.50 lbs, 11 feeds). Chicken Pozole Blanco: $478.86 (114.78 lbs, 5 feeds). Combined: $1,112.34."},
-    {pri:"high",costDriven:true,title:"Protein cost concentration is the sharpest of any week in absolute dollar terms",
-     body:"Proteins are 17.6% of this week's weight but 30.6% of its cost -- the same recurring gap seen every week at this property, with the largest single-week dollar impact given this week's overall size.",
-     support:"Proteins: 17.6% of weight, 30.6% of this week's $2,424.46 cost ($6.44/lb)."},
-    {pri:"med",title:"Tomato Peach Salad and Amaranth Mixed Green Salad are both meaningful items this week",
-     body:"Tomato Peach Salad (40.55 lbs) and the newly-surfaced Amaranth Mixed Green Salad (33.83 lbs, from resolving the late-night feeds) together add up to a real produce-waste line worth a portioning check.",
-     support:"Tomato Peach Salad: 40.55 lbs, $146.37. Amaranth Mixed Green Salad: 33.83 lbs, $109.14."},
-    {pri:"low",title:"This week and Week 2 are now the two fully-complete weeks analyzed for Maven",
-     body:"Together with Week 2, this week gives the clearest picture yet of a fully-covered week at this property -- useful as the reference standard once the remaining 3 no-analysis feeds in Week 1 are addressed.",
-     support:"37 of 37 feeds (100%) contribute to this week's menu-item table."}]}
+    {pri:"high",title:"Chicken Bowl and Chicken Pozole Blanco together drive half of costed waste",
+     body:"These two dishes account for $1,112.34 combined — close to half of this week's $2,272.73 in costed menu-item waste. Addressing portion sizes on both would have an outsized impact on the week's total cost.",
+     support:"Chicken Bowl: $633.48 (175.50 lbs, 11 feeds). Chicken Pozole Blanco: $478.86 (114.78 lbs, 5 feeds). Combined: $1,112.34."},
+    {pri:"high",costDriven:true,title:"Protein cost concentration reaches its largest dollar impact yet",
+     body:"Proteins are 17.6% of this week's weight but 30.6% of its cost — the same recurring gap seen every week at this property, with the largest single-week dollar impact given this week's overall size.",
+     support:"Proteins: 17.6% of weight, 30.6% of $2,424.46 cost ($6.44/lb)."},
+    {pri:"med",title:"Add a portioning check on Tomato Peach Salad and Amaranth Mixed Green Salad",
+     body:"Together these two salads account for a meaningful produce-waste line this week — worth a direct portioning check alongside other salad-menu items.",
+     support:"Tomato Peach Salad: 40.55 lbs, $146.37. Amaranth Mixed Green Salad: 33.83 lbs, $109.14."}]}
 },
 {
   weekLabel:"Jul 26–Aug 2", period:"July 26 – August 2, 2026", periodNote:"Menu attribution is complete this week -- 100% of clean feeds are daypart-correct and included.",
@@ -297,15 +291,12 @@ maven:{
       {item:"Quesadillas",lbs:12.04,flag:"",cat:"Mixed",cost:37.74},
       {item:"Lemonade Agua Fresca",lbs:4.7,flag:"",cat:"Mixed",cost:9.26}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"This is the first fully complete week analyzed for Maven",
-     body:"100% of this week's 8 clean feeds are daypart-correct and menu-attributed -- no exclusions of any kind. Use this week as the reference point for what a fully-covered week looks like once the remaining backlog is reprocessed.",
-     support:"8 of 8 feeds (100%) daypart-correct and included in the menu-item table -- the first complete week for this property."},
-    {pri:"med",costDriven:true,title:"Protein cost concentration holds even in this small, complete sample",
-     body:"Proteins are 17.8% of this week's weight but 31.3% of its cost -- the same recurring gap seen in every week analyzed at this property, now confirmed even in a fully-covered week with no missing data to explain it away.",
-     support:"Proteins: 17.8% of weight, 31.3% of this week's $495.08 cost ($6.44/lb) -- consistent with every other week analyzed."},
-    {pri:"low",title:"Small sample size -- directionally useful, not a large week",
-     body:"At 135.09 lbs across 8 feeds, this is the smallest week analyzed for Maven. Findings here are real but should be read alongside the larger weeks rather than in isolation.",
-     support:"135.09 lbs across 8 feeds -- the smallest week analyzed for this property."}]}
+    {pri:"med",costDriven:true,title:"Protein cost concentration remains consistent",
+     body:"Proteins are 17.8% of this week's weight but 31.3% of its cost — the same gap seen in every week analyzed at this property, reinforcing that this is a structural pattern rather than a one-off.",
+     support:"Proteins: 17.8% of weight, 31.3% of $495.08 cost ($6.44/lb)."},
+    {pri:"low",title:"Read this week as directional, not definitive",
+     body:"At 135.09 lbs across 8 feeds, this is the smallest week analyzed at this property. The findings above are real but should be read alongside larger weeks rather than in isolation.",
+     support:"135.09 lbs across 8 feeds — the smallest week analyzed for this property."}]}
 }
   ],
 
