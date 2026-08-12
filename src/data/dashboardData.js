@@ -321,6 +321,7 @@ dtc:{
     caption:"Category-rate model applied to this week's data.",
     note:"Cost computed from this week's own ingredient-level category breakdown, using the "+
          "property's established per-category $/lb rates."},
+  covers:{status:"confirmed",wastePerCoverOz:"1.61",costPerCover:0.41},
   wasteType:{status:"confirmed",rows:[{label:"Preconsumer",pct:65.2,color:"#1B5E3F"},{label:"Postconsumer",pct:34.8,color:"#8FA99A"}]},
   department:{status:"confirmed",rows:[{label:"Banquet",pct:74.0,color:"#1B5E3F"},{label:"Kitchen",pct:17.2,color:"#96342E"},{label:"M-Club",pct:8.8,color:"#2C5C7A"}]},
   categories:{status:"estimated",rows:[{label:"Vegetables",pct:30.8,costPerLb:3.79,costShare:28.6},{label:"Starches/Grains",pct:21.9,costPerLb:2.35,costShare:12.6},{label:"Fruits",pct:20.5,costPerLb:3.77,costShare:18.9},{label:"Proteins",pct:14.1,costPerLb:6.62,costShare:22.8},{label:"Dairy",pct:6.8,costPerLb:4.2,costShare:7.0},{label:"Other",pct:5.8,costPerLb:7.11,costShare:10.1}]},
@@ -352,6 +353,7 @@ dtc:{
     caption:"Category-rate model applied to this week's data.",
     note:"Cost computed from this week's own ingredient-level category breakdown, using the "+
          "property's established per-category $/lb rates."},
+  covers:{status:"confirmed",wastePerCoverOz:"15.81",costPerCover:3.69},
   wasteType:{status:"confirmed",rows:[{label:"Postconsumer",pct:66.7,color:"#8FA99A"},{label:"Preconsumer",pct:33.3,color:"#1B5E3F"}]},
   department:{status:"confirmed",rows:[{label:"M-Club",pct:51.4,color:"#2C5C7A"},{label:"Banquet",pct:48.6,color:"#1B5E3F"}]},
   categories:{status:"estimated",rows:[{label:"Fruits",pct:38.2,costPerLb:3.77,costShare:38.5},{label:"Starches/Grains",pct:35.0,costPerLb:2.35,costShare:22.0},{label:"Vegetables",pct:10.6,costPerLb:3.79,costShare:10.7},{label:"Proteins",pct:7.7,costPerLb:6.62,costShare:13.6},{label:"Other",pct:7.1,costPerLb:7.11,costShare:13.5},{label:"Dairy",pct:1.4,costPerLb:4.2,costShare:1.6}]},
@@ -381,6 +383,7 @@ dtc:{
     caption:"Category-rate model applied to this week's data.",
     note:"Cost computed from this week's own ingredient-level category breakdown, using the "+
          "property's established per-category $/lb rates."},
+  covers:{status:"confirmed",wastePerCoverOz:"1.76",costPerCover:0.52},
   wasteType:{status:"confirmed",rows:[{label:"Postconsumer",pct:68.2,color:"#8FA99A"},{label:"Preconsumer",pct:30.7,color:"#1B5E3F"},{label:"Spoilage",pct:1.1,color:"#96342E"}]},
   department:{status:"confirmed",rows:[{label:"Banquet",pct:92.6,color:"#1B5E3F"},{label:"M-Club",pct:7.4,color:"#2C5C7A"}]},
   categories:{status:"estimated",rows:[{label:"Vegetables",pct:31.2,costPerLb:3.79,costShare:25.2},{label:"Proteins",pct:20.5,costPerLb:6.62,costShare:28.9},{label:"Starches/Grains",pct:19.3,costPerLb:2.35,costShare:9.7},{label:"Other",pct:17.4,costPerLb:7.11,costShare:26.3},{label:"Fruits",pct:6.0,costPerLb:3.77,costShare:4.8},{label:"Dairy",pct:5.7,costPerLb:4.2,costShare:5.1}]},
@@ -415,6 +418,7 @@ dtc:{
     caption:"Category-rate model applied to this week's data.",
     note:"Cost computed from this week's own ingredient-level category breakdown, using the "+
          "property's established per-category $/lb rates."},
+  covers:{status:"confirmed",wastePerCoverOz:"0.19",costPerCover:0.04},
   wasteType:{status:"confirmed",rows:[{label:"Preconsumer",pct:100,color:"#1B5E3F"}]},
   department:{status:"confirmed",rows:[{label:"Banquet",pct:100,color:"#1B5E3F"}]},
   categories:{status:"estimated",rows:[{label:"Vegetables",pct:73.6,costPerLb:3.79,costShare:80.9},{label:"Starches/Grains",pct:24.3,costPerLb:2.35,costShare:16.6},{label:"Dairy",pct:2.1,costPerLb:4.2,costShare:2.6},{label:"Proteins",pct:0,costPerLb:6.62,costShare:0.0},{label:"Fruits",pct:0,costPerLb:3.77,costShare:0.0},{label:"Other",pct:0,costPerLb:7.11,costShare:0.0}]},
