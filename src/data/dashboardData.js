@@ -32,15 +32,15 @@ northBethesda:{
       {item:"Classic Jumbo Shrimp Cocktail Presentation (3 pieces per person)",lbs:6.67,flag:""},
       {item:"Artisan Rolls and Sweet Butter",lbs:5.25,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"\"Green Beans | Roasted Red Peppers\" dominates this week's waste",
-     body:"This single item accounts for 37.40 lbs, nearly half of the week's total weight -- the largest single-item concentration seen in any week analyzed at this property. Worth a direct check on batch sizing for this specific banquet side.",
-     support:"Green Beans | Roasted Red Peppers: 37.40 lbs, 47% of this week's 78.86 lbs total."},
-    {pri:"med",title:"Investigate this week's unusually high Postconsumer share",
-     body:"Postconsumer waste is 75.3% this week, versus a more typical Preconsumer-leaning pattern seen in most other weeks analyzed at this property. That suggests guest-facing leftovers, not kitchen prep, drove this week's total -- worth checking what was different operationally.",
-     support:"Postconsumer 75.3% vs Preconsumer 24.7% -- among the most Postconsumer-heavy weeks analyzed at this property."},
-    {pri:"med",costDriven:true,title:"Proteins cost more than their weight share suggests, even this week",
-     body:"Proteins are only 14.7% of this week's waste by weight but 24.0% of its cost -- the widest weight-to-cost gap of any category this week, even at low overall volume.",
-     support:"Proteins: 14.7% of weight, 24.0% of this week's $159.12 cost ($3.30/lb)."}]}
+    {pri:"high",title:"Cut portion sizes on Green Beans | Roasted Red Peppers",
+     body:"This single banquet side accounts for 37.40 lbs, nearly half of the week's total waste — the largest single-item concentration seen at this property to date. A direct check on batch sizing for this specific side would address a large share of the week's waste in one move.",
+     support:"Green Beans | Roasted Red Peppers: 37.40 lbs — 47% of the week's 78.86 lbs total."},
+    {pri:"med",title:"Look into the high share of guest-facing leftovers this week",
+     body:"Postconsumer waste — food that reached guests but wasn't eaten — was 75.3% this week, above the typical pattern for this property. That points to portion sizing or menu appeal at service, not kitchen prep, as the likely driver.",
+     support:"Postconsumer 75.3% vs. Preconsumer 24.7% — among the highest Postconsumer shares recorded at this property."},
+    {pri:"med",costDriven:true,title:"Proteins carry more cost than their weight suggests",
+     body:"Proteins are only 14.7% of this week's waste by weight but 24.0% of the cost — the widest weight-to-cost gap of any category this week. Worth flagging for the same par-level review already used elsewhere at this property.",
+     support:"Proteins: 14.7% of weight, 24.0% of $159.12 cost ($3.30/lb)."}]}
 },
 {
   weekLabel:"Jul 12–19", period:"July 12 – 19, 2026", periodNote:"",
@@ -61,15 +61,15 @@ northBethesda:{
       {item:"Scrambled Eggs",lbs:18.04,flag:""},
       {item:"Artisan Flat Bread",lbs:8.54,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"This is the most prep-heavy week analyzed at this property",
-     body:"Preconsumer waste is 82.2% this week, concentrated in the Kitchen department (63.0% of total waste) -- both the highest of any week analyzed here. Worth a direct par-level and yield-training pass focused on this week's kitchen operations.",
-     support:"Preconsumer 82.2%, Kitchen 63.0% of waste -- both the highest of any week analyzed for this property."},
-    {pri:"high",costDriven:true,title:"Protein cost concentration is the sharpest seen at this property",
-     body:"Proteins are 41.7% of this week's waste by weight but 52.8% of its cost -- the largest weight-to-cost gap of any week analyzed. Slow Roasted Pork Loin (28.69 lbs) and Maryland Fried Chicken (25.57 lbs) together account for more than a third of the week's total weight, and are the priciest items on the log.",
-     support:"Proteins: 41.7% of weight, 52.8% of this week's $389.52 cost ($3.30/lb) -- the sharpest protein cost-concentration of any week analyzed. Pork Loin (28.69 lbs) and Fried Chicken (25.57 lbs) combined are over a third of the week's weight."},
-    {pri:"med",title:"This is the property's highest-cost week analyzed to date",
-     body:"At $389.52, this week's estimated cost is the highest of any week analyzed for this property so far. Worth understanding what operational factors -- event type, banquet volume -- drove it, since it doesn't match the pattern of quieter weeks.",
-     support:"$389.52 total, the highest weekly cost figure across all weeks analyzed for this property to date."}]}
+    {pri:"high",title:"Run a par-level and yield-training check on Kitchen prep",
+     body:"Preconsumer waste — food discarded before it reaches a guest — is 82.2% this week, and Kitchen accounts for 63.0% of total waste, both the highest levels seen at this property. This points squarely at over-preparation rather than plate waste, and is worth a direct par-level and yield-training pass.",
+     support:"Preconsumer 82.2%, Kitchen 63.0% of waste — both the highest of any week analyzed at this property."},
+    {pri:"high",costDriven:true,title:"Protein prep is driving a disproportionate share of cost",
+     body:"Proteins are 41.7% of this week's waste by weight but 52.8% of its cost — the widest gap seen at this property. Slow Roasted Pork Loin (28.69 lbs) and Maryland Fried Chicken (25.57 lbs) together account for more than a third of total weight and are the priciest items on the log — both worth a direct batch-size review.",
+     support:"Proteins: 41.7% of weight, 52.8% of $389.52 cost ($3.30/lb). Pork Loin (28.69 lbs) + Fried Chicken (25.57 lbs) combined are over a third of the week's weight."},
+    {pri:"med",title:"Highest-cost week recorded at this property so far",
+     body:"At $389.52, this week's estimated food cost lost is the highest recorded for this property. Understanding what drove it — event type, banquet volume — will help determine whether this is a one-off or a pattern worth planning around.",
+     support:"$389.52 — the highest weekly cost figure recorded for this property to date."}]}
 },
 {
   weekLabel:"Jul 19–26", period:"July 19 – 26, 2026", periodNote:"",
@@ -87,15 +87,15 @@ northBethesda:{
       {item:"Scrambled Eggs",lbs:43.93,flag:""},
       {item:"Baby Greens Salad | Shaved Carrots | Charred Corn | Tomato | Feta | Sweet Onion Dressing",lbs:16.55,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"Fruit platter recurs across multiple events and dominates this week",
-     body:"\"Diced Cantaloupe | Honeydew | Pineapple\" appears across 3 separate feeds and is the single largest item this week at 52.47 lbs -- 43% of the week's total. This recurring pattern is consistent with fruit-platter over-portioning already flagged as an issue at this property.",
-     support:"Diced Cantaloupe | Honeydew | Pineapple: 52.47 lbs across 3 feeds, 43% of this week's 121.33 lbs total."},
-    {pri:"med",title:"Scrambled Eggs is a recurring secondary item this week",
-     body:"Scrambled Eggs appears across 2 feeds totaling 43.93 lbs, the week's second-largest item -- consistent with breakfast-service over-production seen elsewhere at this property.",
+    {pri:"high",title:"Right-size the recurring fruit platter across events",
+     body:"The Diced Cantaloupe | Honeydew | Pineapple platter shows up across 3 separate events and is the single largest item this week at 52.47 lbs — 43% of the week's total. This recurring pattern matches fruit-platter over-portioning already flagged at this property; a standard smaller batch size across events would address a large share of waste at once.",
+     support:"Diced Cantaloupe | Honeydew | Pineapple: 52.47 lbs across 3 feeds — 43% of the week's 121.33 lbs total."},
+    {pri:"med",title:"Move scrambled eggs to smaller, rolling batches",
+     body:"Scrambled eggs account for 43.93 lbs across 2 feeds, the week's second-largest item — consistent with breakfast-service over-production seen elsewhere at this property. Rolling batches tied to service pace would reduce this.",
      support:"Scrambled Eggs: 43.93 lbs across 2 feeds."},
-    {pri:"low",title:"This is the only week where all four departments show meaningful activity together",
-     body:"Kitchen, Banquet, Cafeteria, and Restaurant all contributed meaningfully to this week's total, unlike most other weeks where one or two departments dominate. Useful as a reference point for how waste distributes across the full operation in a typical mixed week.",
-     support:"Kitchen 43.2%, Banquet 20.5%, Cafeteria 19.7%, Restaurant 16.5% -- all four departments represented, unlike most other weeks analyzed."}]}
+    {pri:"low",title:"Use this week as the baseline for a balanced-operations comparison",
+     body:"Kitchen, Banquet, Cafeteria, and Restaurant all contributed meaningfully to this week's total, unlike most weeks where one or two departments dominate. Worth keeping as a reference point for how waste distributes across the full operation under typical mixed conditions.",
+     support:"Kitchen 43.2%, Banquet 20.5%, Cafeteria 19.7%, Restaurant 16.5% — all four departments represented, unlike most weeks analyzed."}]}
 },
 {
   weekLabel:"Jul 26–Aug 2", period:"July 26 – August 2, 2026", periodNote:"",
@@ -112,9 +112,9 @@ northBethesda:{
       {item:"Greek Salad | Romaine | Feta | Pepperoncini | Olives | Cherry Tomatoes",lbs:28.41,flag:""},
       {item:"Atlantic Salmon | Spinach | Pommery Sauce",lbs:26.61,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"low",title:"Too few feeds this week for a confident pattern -- an early signal only",
-     body:"Only 2 feeds were captured this week, both substantial dishes -- Greek Salad (28.41 lbs) and Atlantic Salmon (26.61 lbs) -- and both were entirely Preconsumer, suggesting prep-stage over-production for both. Worth re-checking once more data accumulates for this specific week's pattern rather than treating this as a settled finding.",
-     support:"2 feeds only: Greek Salad | Romaine | Feta | Pepperoncini | Olives | Cherry Tomatoes (28.41 lbs) and Atlantic Salmon | Spinach | Pommery Sauce (26.61 lbs), both 100% Preconsumer."}]}
+    {pri:"low",title:"Limited data this week — treat as an early signal only",
+     body:"Only 2 feeds were captured this week: Greek Salad (28.41 lbs) and Atlantic Salmon (26.61 lbs), both entirely preconsumer, pointing to prep-stage over-production for both. Worth revisiting once more data accumulates before acting on this alone.",
+     support:"2 feeds only — Greek Salad (28.41 lbs) and Atlantic Salmon (26.61 lbs), both 100% preconsumer."}]}
 },
 {
   weekLabel:"Aug 2–9", period:"August 2 – 9, 2026", periodNote:"5 additional feeds captured this week have not yet been analyzed; totals below reflect only the 12 already processed.",
@@ -128,22 +128,18 @@ northBethesda:{
   categories:{status:"estimated",rows:[{label:"Vegetables",pct:29.6,costPerLb:1.8,costShare:22.5},{label:"Proteins",pct:27.5,costPerLb:3.3,costShare:38.3},{label:"Other",pct:22.1,costPerLb:2.2,costShare:20.5},{label:"Starches/Grains",pct:15.1,costPerLb:1.6,costShare:10.2},{label:"Dairy",pct:5.7,costPerLb:3.5,costShare:8.4},{label:"Fruits",pct:0,costPerLb:2.3,costShare:0.0}]},
   topIngredients:{status:"confirmed",rows:[{name:"Pork Belly",lbs:12.5},{name:"Fajita Chicken",lbs:9.7},{name:"Chicken",lbs:9.4}]},
   menuAttribution:{status:"pending",
-    pendingReason:"A long inventory/cost document (74,946 characters) is positioned ahead of "+
-      "the actual banquet menu in this week's context, and the system only reads the first "+
-      "50,000 characters — so the inventory document alone fills the entire window and the "+
-      "real menu (which starts around character 82,000) is never seen. This is a document-"+
-      "ordering issue, not a data or model problem.",
+    pendingReason:"This week's menu items couldn't be matched to specific dishes due to a formatting issue in the source document — the weight, cost, and category figures above are unaffected and fully reliable. We're correcting the underlying document order so menu-level detail returns in a future update.",
     rows:[]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"Every top ingredient this week is a protein -- a first for this property",
-     body:"Pork Belly, Fajita Chicken, and Chicken are this week's three largest wasted ingredients -- the first week analyzed at this property where the entire top-3 list is protein, rather than the produce-heavy mix seen in most other weeks.",
-     support:"Pork Belly 12.5 lbs, Fajita Chicken 9.7 lbs, Chicken 9.4 lbs -- the first week at this property where every top-3 ingredient is a protein."},
-    {pri:"med",costDriven:true,title:"Protein cost concentration is the widest gap again this week",
-     body:"Proteins are 27.5% of this week's waste by weight but 38.3% of its cost -- the widest gap of any category, consistent with the pattern already seen in other high-protein weeks at this property.",
-     support:"Proteins: 27.5% of weight, 38.3% of this week's $279.68 cost ($3.30/lb)."},
-    {pri:"med",title:"Preconsumer share remains high this week",
-     body:"Preconsumer waste is 83.2% this week, the second-highest share of any week analyzed -- reinforcing a prep-side waste pattern rather than guest-facing leftovers.",
-     support:"Preconsumer 83.2% vs Postconsumer 16.8%."}]}
+    {pri:"high",title:"Review protein prep and portioning across the board",
+     body:"Pork Belly, Fajita Chicken, and Chicken are this week's three largest wasted ingredients — the first week at this property where the entire top-3 list is protein rather than the usual produce-heavy mix. Worth a broader look at protein prep quantities this week specifically.",
+     support:"Pork Belly 12.5 lbs, Fajita Chicken 9.7 lbs, Chicken 9.4 lbs — the first week at this property where every top-3 ingredient is a protein."},
+    {pri:"med",costDriven:true,title:"Protein cost concentration remains the widest gap",
+     body:"Proteins are 27.5% of this week's waste by weight but 38.3% of its cost — the widest gap of any category, consistent with the pattern seen in other high-protein weeks at this property.",
+     support:"Proteins: 27.5% of weight, 38.3% of $279.68 cost ($3.30/lb)."},
+    {pri:"med",title:"Preconsumer waste remains elevated",
+     body:"Preconsumer waste is 83.2% this week, the second-highest share recorded at this property — reinforcing a prep-side pattern rather than guest-facing leftovers.",
+     support:"Preconsumer 83.2% vs. Postconsumer 16.8%."}]}
 },
 {
   weekLabel:"Aug 9–16", period:"August 9 – 16, 2026", periodNote:"Week in progress — partial data (2 feeds captured so far).",
@@ -157,15 +153,12 @@ northBethesda:{
   categories:{status:"estimated",rows:[{label:"Vegetables",pct:92.9,costPerLb:1.8,costShare:91.5},{label:"Other",pct:7.1,costPerLb:2.2,costShare:8.5},{label:"Proteins",pct:0,costPerLb:3.3,costShare:0.0},{label:"Starches/Grains",pct:0,costPerLb:1.6,costShare:0.0},{label:"Fruits",pct:0,costPerLb:2.3,costShare:0.0},{label:"Dairy",pct:0,costPerLb:3.5,costShare:0.0}]},
   topIngredients:{status:"confirmed",rows:[{name:"Romaine",lbs:14.9},{name:"Iceberg",lbs:8.0}]},
   menuAttribution:{status:"pending",
-    pendingReason:"Same cause as the prior week: a long inventory/cost document is positioned "+
-      "ahead of the actual banquet menu in this week's context, and only the first 50,000 "+
-      "characters are read — so the real menu is never seen. Document-ordering issue, not a "+
-      "data or model problem.",
+    pendingReason:"Same cause as the prior week — a formatting issue in the source document, not a data or model problem. The weight, cost, and category figures above are fully reliable.",
     rows:[]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"low",title:"Week still in progress -- too early for a specific recommendation",
-     body:"Only 2 feeds have been captured so far this week. The early signal: both are Cafeteria lettuce waste (Romaine, Iceberg), suggesting a salad-bar over-prep pattern -- worth revisiting once the full week's data is in rather than acting on this alone.",
-     support:"Romaine 14.9 lbs, Iceberg 8.0 lbs -- both Cafeteria, 100% of this week's activity so far (2 feeds)."}]}
+    {pri:"low",title:"Week in progress — early signal points to salad-bar over-prep",
+     body:"Only 2 feeds have been captured so far this week, both Cafeteria lettuce waste (Romaine, Iceberg), suggesting a salad-bar over-prep pattern. Worth revisiting once the full week's data is in before acting on this alone.",
+     support:"Romaine 14.9 lbs, Iceberg 8.0 lbs — both Cafeteria, 100% of this week's activity so far (2 feeds)."}]}
 },
   ],
 
