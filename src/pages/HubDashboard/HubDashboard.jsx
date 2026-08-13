@@ -225,7 +225,7 @@ function HubDashboard() {
 	})();
 
 	return (
-		<>
+		<div className={present ? 'present' : undefined}>
 			<header>
 				<div className='wrap hbar'>
 					<div className='brand'>
@@ -601,7 +601,7 @@ function HubDashboard() {
 
 				<footer />
 			</main>
-		</>
+		</div>
 	);
 }
 
