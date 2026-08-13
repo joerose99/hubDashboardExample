@@ -25,6 +25,7 @@ h1,h2,h3,h4{margin:0;font-weight:600;letter-spacing:-0.015em;}
 .prov-note{font-family:var(--f-mono);font-size:11px;line-height:1.55;color:var(--muted);
   margin-top:10px;padding-left:11px;border-left:2px solid var(--line-strong);}
 body.present .internal-only{display:none !important;}
+body.present .stat-cap{display:none !important;}
 
 /* header */
 header{position:sticky;top:0;z-index:40;background:rgba(255,255,255,.96);
