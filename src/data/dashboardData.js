@@ -1,7 +1,7 @@
 /* Multi-week Marriott portfolio dashboard data. */
 const DATA = {
 
-default:'northBethesda',
+default:'dtc',
 
 properties:{
 
@@ -398,12 +398,9 @@ dtc:{
       {item:"Cantaloupe",lbs:41.12,flag:""},
       {item:"Halved Hardboiled Egg",lbs:38.67,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"Make egg-station batch sizing a standing fix, not a one-time adjustment",
-     body:"Scrambled Eggs is the largest item again this week at 86.47 lbs across 4 feeds, confirming the pattern seen in the prior week wasn't a one-off. This points to a standing process fix at the egg station rather than a single adjustment.",
-     support:"Scrambled Eggs: 86.47 lbs across 4 feeds — the highest of any item this week."},
-    {pri:"high",costDriven:true,title:"Add a cost-ranked review alongside the weight-ranked one",
-     body:"\"Other\" is 17.4% of this week's weight but 26.3% of cost — the widest gap — and Proteins follow a similar pattern at 20.5% of weight versus 28.9% of cost. Both categories deserve a cost-ranked look alongside the usual weight-ranked review.",
-     support:"Other: 17.4% of weight, 26.3% of $3,851.65 cost ($7.11/lb). Proteins: 20.5% of weight, 28.9% of cost ($6.62/lb)."},
+    {pri:"high",costDriven:true,estSavings:"$143–$172/wk",title:"Make egg-station batch sizing a standing fix, not a one-time adjustment",
+     body:"Scrambled Eggs is the largest item again this week at 86.47 lbs across 4 feeds, confirming the pattern seen in the prior week wasn't a one-off. At the Proteins rate ($6.62/lb), that's roughly $572 in cost this week from this single item. Cutting batch sizes by 25–30% would save an estimated $143–$172 per week at current cost. This points to a standing process fix at the egg station rather than a one-time adjustment.",
+     support:"Scrambled Eggs: 86.47 lbs across 4 feeds, ~$572 at the property's $6.62/lb Proteins rate — the highest of any item this week."},
     {pri:"med",title:"Extend the par-level review to Par Boiled Rice and Green Beans",
      body:"Both appear across 4 feeds each — Par Boiled Rice at 74.12 lbs and Green Beans at 71.23 lbs — making them worth the same par-level review already warranted for the egg station.",
      support:"Par Boiled Rice: 74.12 lbs across 4 feeds. Green Beans: 71.23 lbs across 4 feeds."},
@@ -412,7 +409,7 @@ dtc:{
      support:"Spoilage: 1.1% of total waste weight this week — not present in any other analyzed week for this property."}]}
 },
 {
-  weekLabel:"Aug 2–9", period:"August 2 – 9, 2026", periodNote:"Week in progress — 25 additional feeds captured this week are still being analyzed; totals below reflect only the 2 processed so far. A prep sheet for this specific period isn't available yet either, so once analysis catches up, menu-item detail may initially rely on a nearby week's sheet.",
+  weekLabel:"Aug 2–9", hidden:true, period:"August 2 – 9, 2026", periodNote:"Week in progress — 25 additional feeds captured this week are still being analyzed; totals below reflect only the 2 processed so far. A prep sheet for this specific period isn't available yet either, so once analysis catches up, menu-item detail may initially rely on a nearby week's sheet.",
   totalLbs:{value:44.2,status:"confirmed"},
   costLost:{low:null,high:null,status:"estimated",display:"$152.43",perLb:3.45,
     caption:"Category-rate model applied to this week's data.",

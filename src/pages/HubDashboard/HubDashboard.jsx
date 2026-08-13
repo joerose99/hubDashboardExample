@@ -8,6 +8,12 @@ const n = (v, d = 0) =>
 const money = (v) =>
 	'$' + v.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1);
+const lastVisibleWeekIdx = (arr) => {
+	for (let i = arr.length - 1; i >= 0; i--) {
+		if (!arr[i].hidden) return i;
+	}
+	return arr.length - 1;
+};
 
 const PRI_ORDER = { high: 0, med: 1, low: 2 };
 
@@ -154,7 +160,7 @@ function MenuTable({ rows, flags, menuSort, onSort }) {
 function HubDashboard() {
 	const [current, setCurrent] = useState(DATA.default);
 	const [currentWeekIdx, setCurrentWeekIdx] = useState(
-		() => DATA.properties[DATA.default].weeks.length - 1
+		() => lastVisibleWeekIdx(DATA.properties[DATA.default].weeks)
 	);
 	const [present, setPresent] = useState(false);
 	const [menuSort, setMenuSort] = useState({ key: 'lbs', dir: 'desc' });
@@ -170,7 +176,7 @@ function HubDashboard() {
 
 	const selectProperty = (k) => {
 		setCurrent(k);
-		setCurrentWeekIdx(DATA.properties[k].weeks.length - 1);
+		setCurrentWeekIdx(lastVisibleWeekIdx(DATA.properties[k].weeks));
 		setMenuSort({ key: 'lbs', dir: 'desc' });
 	};
 
@@ -258,9 +264,13 @@ function HubDashboard() {
 						<div className='eyebrow'>
 							{p.period} · {p.name}
 						</div>
-						{prop.weeks.length > 1 && (
+						{(() => {
+							const visibleWeeks = prop.weeks
+								.map((w, i) => ({ w, i }))
+								.filter((x) => !x.w.hidden);
+							return visibleWeeks.length > 1 ? (
 							<div className='week-picker' role='group' aria-label='Select week'>
-								{prop.weeks.map((w, i) => (
+								{visibleWeeks.map(({ w, i }) => (
 									<button
 										key={w.weekLabel}
 										type='button'
@@ -272,7 +282,8 @@ function HubDashboard() {
 									</button>
 								))}
 							</div>
-						)}
+							) : null;
+						})()}
 
 						{p.noAnalysis ? (
 							<div className='card card-pending'>

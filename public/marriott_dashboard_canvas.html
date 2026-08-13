@@ -245,7 +245,7 @@ footer{padding:26px 0 44px;border-top:1px solid var(--line);font-family:var(--f-
    ================================================================ */
 const DATA = {
 
-default:'northBethesda',
+default:'dtc',
 
 properties:{
 
@@ -658,21 +658,18 @@ dtc:{
       {item:"Cantaloupe",lbs:41.12,flag:""},
       {item:"Halved Hardboiled Egg",lbs:38.67,flag:""}]},
   recommendations:{status:"confirmed",rows:[
-    {pri:"high",title:"Scrambled Eggs tops the log again -- this is a recurring issue, not a one-off",
-     body:"Scrambled Eggs is the largest item this week too, at 86.47 lbs across 4 feeds -- confirming the Week 1 finding wasn't a fluke. Egg-station batch sizing deserves a standing fix, not a one-time adjustment.",
-     support:"Scrambled Eggs: 86.47 lbs across 4 feeds, the highest of any item this week."},
-    {pri:"high",costDriven:true,title:"Two categories punch above their weight in cost this week",
-     body:"\"Other\" is 17.4% of this week's weight but 26.3% of cost -- the widest gap -- and Proteins run a similar pattern at 20.5% of weight versus 28.9% of cost. Both deserve a cost-ranked look alongside the usual weight-ranked review.",
-     support:"Other: 17.4% of weight, 26.3% of this week's $3,851.65 cost ($7.11/lb). Proteins: 20.5% of weight, 28.9% of cost ($6.62/lb)."},
-    {pri:"med",title:"Par Boiled Rice and Green Beans are the next-largest recurring items",
-     body:"Both appear across 4 feeds each -- Par Boiled Rice at 74.12 lbs and Green Beans at 71.23 lbs -- making them worth the same par-level review already warranted for the egg station.",
+    {pri:"high",costDriven:true,title:"Make egg-station batch sizing a standing fix, not a one-time adjustment",
+     body:"Scrambled Eggs is the largest item again this week at 86.47 lbs across 4 feeds, confirming the pattern seen in the prior week wasn't a one-off. At the Proteins rate ($6.62/lb), that's roughly $572 in cost this week from this single item. This points to a standing process fix at the egg station rather than a one-time adjustment.",
+     support:"Scrambled Eggs: 86.47 lbs across 4 feeds, ~$572 at the property's $6.62/lb Proteins rate — the highest of any item this week."},
+    {pri:"med",title:"Extend the par-level review to Par Boiled Rice and Green Beans",
+     body:"Both appear across 4 feeds each — Par Boiled Rice at 74.12 lbs and Green Beans at 71.23 lbs — making them worth the same par-level review already warranted for the egg station.",
      support:"Par Boiled Rice: 74.12 lbs across 4 feeds. Green Beans: 71.23 lbs across 4 feeds."},
-    {pri:"low",title:"A small spoilage share appeared this week -- the only week it has",
-     body:"Spoilage was 1.1% of total waste weight this week, not detected in any other week analyzed at this property. The share is small, but worth a quick check on cold-storage practices given it hasn't appeared before.",
-     support:"Spoilage: 1.1% of total waste weight this week -- not present in any other analyzed week for this property."}]}
+    {pri:"low",title:"Check cold-storage practices after this week's spoilage reading",
+     body:"Spoilage was 1.1% of total waste weight this week, not seen in any other week analyzed at this property. The share is small, but worth a quick check on cold-storage practices given it hasn't appeared before.",
+     support:"Spoilage: 1.1% of total waste weight this week — not present in any other analyzed week for this property."}]}
 },
 {
-  weekLabel:"Aug 2–9", period:"August 2 – 9, 2026", periodNote:"Week in progress — 25 additional feeds captured this week have not yet been analyzed; totals reflect only the 2 already processed. No per-week prep sheet exists yet for this period either, so later analysis may need fallback correlation.",
+  weekLabel:"Aug 2–9", hidden:true, period:"August 2 – 9, 2026", periodNote:"Week in progress — 25 additional feeds captured this week have not yet been analyzed; totals reflect only the 2 already processed. No per-week prep sheet exists yet for this period either, so later analysis may need fallback correlation.",
   totalLbs:{value:44.2,status:"confirmed"},
   costLost:{low:null,high:null,status:"estimated",display:"$152.43",perLb:3.45,
     caption:"Category-rate model applied to this week's data.",
@@ -723,8 +720,9 @@ const $=id=>document.getElementById(id);
 const n=(v,d=0)=>v.toLocaleString('en-US',{minimumFractionDigits:d,maximumFractionDigits:d});
 const money=v=>'$'+v.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});
 const cap=s=>s.charAt(0).toUpperCase()+s.slice(1);
+const lastVisibleWeekIdx=arr=>{for(let i=arr.length-1;i>=0;i--){if(!arr[i].hidden) return i;} return arr.length-1;};
 let current=DATA.default;
-let currentWeekIdx=DATA.properties[current].weeks.length-1;
+let currentWeekIdx=lastVisibleWeekIdx(DATA.properties[current].weeks);
 
 /* ---------- picker ---------- */
 $('picker').innerHTML=Object.keys(DATA.properties).map(k=>
@@ -732,7 +730,7 @@ $('picker').innerHTML=Object.keys(DATA.properties).map(k=>
 $('picker').addEventListener('click',e=>{
   const b=e.target.closest('button'); if(!b) return;
   current=b.dataset.k;
-  currentWeekIdx=DATA.properties[current].weeks.length-1;
+  currentWeekIdx=lastVisibleWeekIdx(DATA.properties[current].weeks);
   [...$('picker').children].forEach(x=>x.setAttribute('aria-pressed',x.dataset.k===current));
   render();
 });
@@ -762,8 +760,9 @@ function render(){
 
   /* hero */
   h+=`<section><div class="eyebrow">${p.period} · ${p.name}</div>`;
-  if(prop.weeks.length>1){
-    h+=`<div class="week-picker" role="group" aria-label="Select week">${prop.weeks.map((w,i)=>
+  const visibleWeeks=prop.weeks.map((w,i)=>({w,i})).filter(x=>!x.w.hidden);
+  if(visibleWeeks.length>1){
+    h+=`<div class="week-picker" role="group" aria-label="Select week">${visibleWeeks.map(({w,i})=>
       `<button data-week-idx="${i}" aria-pressed="${i===currentWeekIdx}">${w.weekLabel}</button>`).join('')}</div>`;
   }
   if(p.noAnalysis){
